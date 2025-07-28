@@ -1,0 +1,336 @@
+"use client"
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { useScrollAnimations } from "@/components/ScrollAnimations";
+import gsap from "gsap";
+import { ExternalLink, Users, Clock, Award, BookOpen, Code, Shield, Network, Brain, Database, Server } from "lucide-react";
+import ciscoTechImage from "@/assets/cisco-tech.jpg";
+import { useEffect, useRef } from "react";
+
+const TechTayari = () => {
+  useScrollAnimations();
+
+  const registerButtonRef = useRef<HTMLButtonElement | null>(null);
+
+  useEffect(() => {
+    gsap.fromTo(registerButtonRef.current,
+      {
+        opacity: 0,
+        filter: "blur(10px)",
+        scale: 0.95
+      },
+      {
+        opacity: 1,
+        filter: "blur(0px)",
+        scale: 1,
+        duration: 1,
+        ease: "power3.out",
+        delay: 0.2
+      }
+    );
+
+  }, []);
+  
+  const tracks = [
+    {
+      icon: Brain,
+      title: "Artificial Intelligence",
+      description: "Master the fundamentals of AI and modern technologies",
+      color: "bg-blue-500/10 text-blue-400 border-blue-500/20",
+      courses: [
+        { name: "Introduction to Modern AI", type: "SP/IL" },
+        { name: "AI Fundamentals with IBM SkillsBuild", type: "FREE" },
+        { name: "[Beta] Data Science Essentials with Python", type: "SP/IL" }
+      ]
+    },
+    {
+      icon: Shield,
+      title: "Cybersecurity",
+      description: "Learn to protect and secure digital infrastructure",
+      color: "bg-red-500/10 text-red-400 border-red-500/20",
+      courses: [
+        { name: "Introduction to Cybersecurity", type: "SP/IL" },
+        { name: "Cybersecurity Essentials", type: "IL" },
+        { name: "Ethical Hacker", type: "SP/IL" },
+        { name: "Endpoint Security", type: "SP/IL" },
+        { name: "Network Defense", type: "SP/IL" },
+        { name: "Cyber Threat Management", type: "SP/IL" },
+        { name: "CyberOps Associate", type: "IL" }
+      ]
+    },
+    {
+      icon: Network,
+      title: "Networking",
+      description: "Build expertise in network infrastructure and IoT",
+      color: "bg-green-500/10 text-green-400 border-green-500/20",
+      courses: [
+        { name: "Networking Basics", type: "SP" },
+        { name: "Networking Essentials", type: "IL" },
+        { name: "Introduction to IoT and Digital Transformation", type: "SP/IL" },
+        { name: "CCNA: Introduction to Networks (ITN)", type: "IL" },
+        { name: "CCNA: Switching, Routing, and Wireless Essentials (SRWE)", type: "IL" },
+        { name: "CCNA: Enterprise Networking, Security, and Automation (ENSA)", type: "IL" }
+      ]
+    },
+    {
+      icon: Code,
+      title: "Programming",
+      description: "Master programming languages and development skills",
+      color: "bg-purple-500/10 text-purple-400 border-purple-500/20",
+      courses: [
+        { name: "Python Essentials 1", type: "SP/IL" },
+        { name: "Python Essentials 2", type: "SP/IL" },
+        { name: "JavaScript Essentials 1", type: "SP/IL - FREE" },
+        { name: "JavaScript Essentials 2", type: "SP/IL" }
+      ]
+    },
+    {
+      icon: Database,
+      title: "Data Science",
+      description: "Analyze data and extract meaningful insights",
+      color: "bg-yellow-500/10 text-yellow-400 border-yellow-500/20",
+      courses: [
+        { name: "Introduction to Data Science", type: "SP/IL" },
+        { name: "Data Analytics Essentials", type: "SP/IL" },
+        { name: "[Beta] Data Science Essentials with Python", type: "SP/IL" }
+      ]
+    },
+    {
+      icon: Server,
+      title: "DevNet Associate",
+      description: "Learn network automation and programmability",
+      color: "bg-indigo-500/10 text-indigo-400 border-indigo-500/20",
+      courses: [
+        { name: "DevNet Associate", type: "IL" }
+      ]
+    }
+  ];
+
+  const handleRegister = () => {
+    window.open("https://forms.google.com/example", "_blank");
+  };
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      
+      {/* Hero Section */}
+      <section className="relative pt-16 pb-20 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-hero">
+          <img 
+            src={ciscoTechImage} 
+            alt="Cisco Technology" 
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/90 to-background/70" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="hero-content text-center">
+            {/* Partnership Badge */}
+            <div className="fade-in-up inline-flex items-center gap-2 bg-cyber-surface border border-primary/20 rounded-full px-6 py-3 mb-8">
+              <Award className="h-5 w-5 text-primary" />
+              <span className="text-sm font-medium text-primary">NanoTechx × Cisco Partnership</span>
+            </div>
+
+            {/* Main Heading */}
+            <h1 className="fade-in-up text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+              <span className="bg-gradient-primary bg-clip-text text-transparent">
+                Tech Tayari 1.0
+              </span>
+            </h1>
+
+            <p className="fade-in-up text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+              Comprehensive Cisco courses across 6 domains to prepare you for the future of technology. 
+              From AI to Cybersecurity, master the skills that matter.
+            </p>
+
+            {/* Stats */}
+            <div className="fade-in-up grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 max-w-4xl mx-auto">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-primary mb-2">6</div>
+                <div className="text-sm text-muted-foreground">Learning Tracks</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-primary mb-2">25+</div>
+                <div className="text-sm text-muted-foreground">Courses Available</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-primary mb-2">100%</div>
+                <div className="text-sm text-muted-foreground">Industry Relevant</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-primary mb-2">∞</div>
+                <div className="text-sm text-muted-foreground">Career Growth</div>
+              </div>
+            </div>
+
+            {/* CTA Button */}
+            <Button
+              ref={registerButtonRef}
+              variant="cyber" 
+              size="lg" 
+              onClick={handleRegister}
+              className="fade-in group text-lg px-8 py-4 h-auto"
+            >
+              Register Now - Start Your Journey
+              <ExternalLink className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+
+            <p className="fade-in-up text-sm text-muted-foreground mt-4">
+              Limited seats available • Earn a Cisco Certified Badge • Industry certification
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Learning Tracks */}
+      <section className="py-20 bg-cyber-surface/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="fade-in-up text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Choose Your <span className="bg-gradient-primary bg-clip-text text-transparent">Learning Track</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Explore six comprehensive domains designed to build expertise in cutting-edge technologies. 
+              Each track offers industry-recognized Cisco certifications.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {tracks.map((track, index) => {
+              const IconComponent = track.icon;
+              return (
+                <Card key={index} className="fade-in-up group hover:shadow-cyber transition-all duration-300 hover:-translate-y-1 border-border/50 bg-card/50 backdrop-blur-sm">
+                  <CardHeader>
+                    <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 border ${track.color}`}>
+                      <IconComponent className="h-6 w-6" />
+                    </div>
+                    <CardTitle className="text-xl font-semibold group-hover:text-primary transition-colors">
+                      {track.title}
+                    </CardTitle>
+                    <CardDescription className="text-muted-foreground">
+                      {track.description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-2 mb-6">
+                      {track.courses.map((course, courseIndex) => (
+                        <div key={courseIndex} className="flex items-center justify-between p-2 bg-cyber-surface/50 rounded-lg">
+                          <span className="text-sm font-medium">{course.name}</span>
+                          <Badge variant="outline" className="text-xs">
+                            {course.type}
+                          </Badge>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="flex items-center justify-between text-sm text-muted-foreground">
+                      <div className="flex items-center gap-1">
+                        <BookOpen className="h-4 w-4" />
+                        {track.courses.length} Courses
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Clock className="h-4 w-4" />
+                        Self-paced
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Program Features */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="fade-in-up text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Why Choose <span className="bg-gradient-primary bg-clip-text text-transparent">Tech Tayari 1.0?</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="fade-in-left text-center">
+              <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                <Award className="h-8 w-8 text-primary-foreground" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Industry Certified</h3>
+              <p className="text-sm text-muted-foreground">
+                Earn globally recognized Cisco certifications that employers value
+              </p>
+            </div>
+
+            <div className="fade-in-up text-center">
+              <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="h-8 w-8 text-primary-foreground" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Expert Guidance</h3>
+              <p className="text-sm text-muted-foreground">
+                Learn from industry experts with hands-on experience
+              </p>
+            </div>
+
+            <div className="fade-in-up text-center">
+              <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                <Clock className="h-8 w-8 text-primary-foreground" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Flexible Learning</h3>
+              <p className="text-sm text-muted-foreground">
+                Self-paced and instructor-led options to fit your schedule
+              </p>
+            </div>
+
+            <div className="fade-in-right text-center">
+              <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                <BookOpen className="h-8 w-8 text-primary-foreground" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Practical Skills</h3>
+              <p className="text-sm text-muted-foreground">
+                Hands-on labs and real-world projects to build expertise
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="py-20 bg-gradient-dark">
+        <div className="fade-in-up max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Ready to Transform Your Career?
+          </h2>
+          <p className="text-lg text-muted-foreground mb-8">
+            Join hundreds of professionals who have advanced their careers through Tech Tayari 1.0. 
+            Start your journey in cutting-edge technology today.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              variant="cyber" 
+              size="lg" 
+              onClick={handleRegister}
+              className="group"
+            >
+              Register Now
+              <ExternalLink className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+            <Button variant="cyber-outline" size="lg">
+              Download Brochure
+            </Button>
+          </div>
+          <p className="text-sm text-muted-foreground mt-6">
+            Questions? Contact us at <span className="text-primary">techtayari@nanotechx.com</span>
+          </p>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default TechTayari;
