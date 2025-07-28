@@ -1,38 +1,12 @@
-"use client"
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { useScrollAnimations } from "@/components/ScrollAnimations";
-import gsap from "gsap";
 import { ExternalLink, Users, Clock, Award, BookOpen, Code, Shield, Network, Brain, Database, Server } from "lucide-react";
 import ciscoTechImage from "@/assets/cisco-tech.jpg";
-import { useEffect, useRef } from "react";
 
 const TechTayari = () => {
-  useScrollAnimations();
-
-  const registerButtonRef = useRef<HTMLButtonElement | null>(null);
-
-  useEffect(() => {
-    gsap.fromTo(registerButtonRef.current,
-      {
-        opacity: 0,
-        filter: "blur(10px)",
-        scale: 0.95
-      },
-      {
-        opacity: 1,
-        filter: "blur(0px)",
-        scale: 1,
-        duration: 1,
-        ease: "power3.out",
-        delay: 0.2
-      }
-    );
-
-  }, []);
   
   const tracks = [
     {
@@ -110,7 +84,7 @@ const TechTayari = () => {
   ];
 
   const handleRegister = () => {
-    window.open("https://forms.google.com/example", "_blank");
+    window.open("https://docs.google.com/forms/d/e/1FAIpQLSdk7Sqwa_v4LGyYtWyRds7UAchfGL1BFNTBMTCKh1yxk0QGoQ/viewform?usp=header", "_blank");
   };
 
   return (
@@ -169,19 +143,18 @@ const TechTayari = () => {
             </div>
 
             {/* CTA Button */}
-            <Button
-              ref={registerButtonRef}
+            <Button 
               variant="cyber" 
               size="lg" 
               onClick={handleRegister}
-              className="fade-in group text-lg px-8 py-4 h-auto"
+              className="fade-in-up group text-lg px-8 py-4 h-auto"
             >
               Register Now - Start Your Journey
               <ExternalLink className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
 
             <p className="fade-in-up text-sm text-muted-foreground mt-4">
-              Limited seats available • Earn a Cisco Certified Badge • Industry certification
+              Limited seats available • Early bird pricing • Industry certification
             </p>
           </div>
         </div>
@@ -292,6 +265,29 @@ const TechTayari = () => {
               <h3 className="text-lg font-semibold mb-2">Practical Skills</h3>
               <p className="text-sm text-muted-foreground">
                 Hands-on labs and real-world projects to build expertise
+              </p>
+            </div>
+          </div>
+
+          {/* Additional Features Row */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+            <div className="fade-in-left text-center">
+              <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="h-8 w-8 text-primary-foreground" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Weekly Live Sessions</h3>
+              <p className="text-sm text-muted-foreground">
+                Join 2-hour expert-led online classes every week for interactive learning
+              </p>
+            </div>
+
+            <div className="fade-in-right text-center">
+              <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                <Network className="h-8 w-8 text-primary-foreground" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Industry Expert Webinars</h3>
+              <p className="text-sm text-muted-foreground">
+                Attend free webinars with industry leaders discussing various tech domains
               </p>
             </div>
           </div>

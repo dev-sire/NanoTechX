@@ -1,5 +1,6 @@
 import { Shield, Mail, Phone, MapPin, Linkedin, Twitter, Github } from "lucide-react";
 import { Link } from "react-router-dom";
+import nanotechxlogo from "@/assets/nanotechx.png";
 
 const Footer = () => {
   return (
@@ -9,11 +10,9 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="p-2 bg-gradient-primary rounded-lg">
-                <Shield className="h-6 w-6 text-primary-foreground" />
-              </div>
-              <span className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-                NanoTechx
+              <img src={nanotechxlogo} alt="logo" className="h-[42px] w-[35px]" />
+              <span className="text-xl font-bold text-[#3ab54a]">
+                NanoTechX
               </span>
             </div>
             <p className="text-muted-foreground mb-6 max-w-md">

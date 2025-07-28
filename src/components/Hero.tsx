@@ -1,11 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Lock, Zap } from "lucide-react";
-import heroImage from "@/assets/hero-cyber.jpg";
 import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const CodeMatrix = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -65,61 +60,15 @@ const CodeMatrix = () => {
 };
 
 const Hero = () => {
-  const heroRef = useRef<HTMLElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!heroRef.current || !contentRef.current) return;
-
-    // GSAP animations
-    const tl = gsap.timeline();
-    
-    tl.fromTo(contentRef.current.children[0], 
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
-    )
-    .fromTo(contentRef.current.children[1], 
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
-      "-=0.6"
-    )
-    .fromTo(contentRef.current.children[2], 
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
-      "-=0.6"
-    )
-    .fromTo(contentRef.current.children[3], 
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
-      "-=0.6"
-    );
-
-    // Scroll-triggered animations for stats
-    gsap.fromTo(".stat-item", 
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: ".stats-container",
-          start: "top 80%",
-          end: "bottom 20%",
-        }
-      }
-    );
-
-  }, []);
 
   return (
-    <section ref={heroRef} className="relative min-h-screen flex items-center pt-16 overflow-hidden">
+    <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
       {/* Background */}
       <CodeMatrix />
 
       {/* Content */}
       <div className="relative z-100 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div ref={contentRef} className="max-w-3xl">
+        <div className="max-w-3xl">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-cyber-surface/90 backdrop-blur-sm border border-primary/30 rounded-full px-4 py-2 mb-6">
             <Shield className="h-4 w-4 text-primary" />
