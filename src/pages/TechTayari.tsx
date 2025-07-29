@@ -5,8 +5,12 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ExternalLink, Users, Clock, Award, BookOpen, Code, Shield, Network, Brain, Database, Server } from "lucide-react";
 import ciscoTechImage from "@/assets/cisco-tech.jpg";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const TechTayari = () => {
+
+  const isMobile = useIsMobile()
+  console.log(isMobile)
   
   const tracks = [
     {
@@ -87,10 +91,18 @@ const TechTayari = () => {
     window.open("https://docs.google.com/forms/d/e/1FAIpQLSdk7Sqwa_v4LGyYtWyRds7UAchfGL1BFNTBMTCKh1yxk0QGoQ/viewform?usp=header", "_blank");
   };
 
+  const handleDownloadPoster = () => {
+    const link = document.createElement('a');
+    link.href = '/poster.png';
+    link.download = 'cisco-tech.jpg';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      
       {/* Hero Section */}
       <section className="relative pt-16 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-hero">
@@ -105,25 +117,25 @@ const TechTayari = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="hero-content text-center">
             {/* Partnership Badge */}
-            <div className="fade-in-up inline-flex items-center gap-2 bg-cyber-surface border border-primary/20 rounded-full px-6 py-3 mb-8">
-              <Award className="h-5 w-5 text-primary" />
+            <div className="animate-float fade-in-5 inline-flex items-center gap-2 bg-cyber-surface border border-primary/20 rounded-full px-6 py-3 mb-8">
+              <Award className="h-5 w-5 text-primary animate-glow" />
               <span className="text-sm font-medium text-primary">NanoTechx × Cisco Partnership</span>
             </div>
 
             {/* Main Heading */}
-            <h1 className="fade-in-up text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+            <h1 className="animate-reveal-blur [animation-delay:300ms] opacity-0 text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
               <span className="bg-gradient-primary bg-clip-text text-transparent">
                 Tech Tayari 1.0
               </span>
             </h1>
 
-            <p className="fade-in-up text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+            <p className="animate-reveal-blur [animation-delay:600ms] opacity-0 text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
               Comprehensive Cisco courses across 6 domains to prepare you for the future of technology. 
               From AI to Cybersecurity, master the skills that matter.
             </p>
 
             {/* Stats */}
-            <div className="fade-in-up grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 max-w-4xl mx-auto">
+            <div className="animate-reveal-blur [animation-delay:900ms] opacity-0 grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 max-w-4xl mx-auto">
               <div className="text-center">
                 <div className="text-3xl font-bold text-primary mb-2">6</div>
                 <div className="text-sm text-muted-foreground">Learning Tracks</div>
@@ -145,16 +157,16 @@ const TechTayari = () => {
             {/* CTA Button */}
             <Button 
               variant="cyber" 
-              size="lg" 
+              size={isMobile ? "sm" : "lg"}
               onClick={handleRegister}
-              className="fade-in-up group text-lg px-8 py-4 h-auto"
+              className="animate-reveal-blur [animation-delay:1200ms] opacity-0 group text-lg px-4 md:px-8 py-4 h-auto"
             >
               Register Now - Start Your Journey
               <ExternalLink className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
 
-            <p className="fade-in-up text-sm text-muted-foreground mt-4">
-              Limited seats available • Early bird pricing • Industry certification
+            <p className="animate-reveal-blur [animation-delay:1500ms] opacity-0 text-sm text-muted-foreground mt-4">
+              Limited seats available • Earn a Free Digital Badge • Industry certification
             </p>
           </div>
         </div>
@@ -207,7 +219,7 @@ const TechTayari = () => {
                       </div>
                       <div className="flex items-center gap-1">
                         <Clock className="h-4 w-4" />
-                        Self-paced
+                        Learn at your own pace
                       </div>
                     </div>
                   </CardContent>
@@ -314,8 +326,8 @@ const TechTayari = () => {
               Register Now
               <ExternalLink className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button variant="cyber-outline" size="lg">
-              Download Brochure
+            <Button variant="cyber-outline" size="lg" onClick={handleDownloadPoster}>
+              Download Poster
             </Button>
           </div>
           <p className="text-sm text-muted-foreground mt-6">
@@ -323,7 +335,6 @@ const TechTayari = () => {
           </p>
         </div>
       </section>
-
       <Footer />
     </div>
   );

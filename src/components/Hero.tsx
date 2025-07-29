@@ -62,7 +62,7 @@ const CodeMatrix = () => {
 const Hero = () => {
 
   return (
-    <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
+    <section className="relative min-h-screen flex items-center pt-28 md:pt-16 overflow-hidden">
       {/* Background */}
       <CodeMatrix />
 
