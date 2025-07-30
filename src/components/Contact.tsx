@@ -33,7 +33,7 @@ const Contact = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-2">Send us an email anytime</p>
-                <p className="text-primary font-medium">contact@nanotechx.com</p>
+                <p className="text-primary font-medium">info@nanotechx.org</p>
               </CardContent>
             </Card>
 
@@ -48,7 +48,7 @@ const Contact = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-2">24/7 support available</p>
-                <p className="text-primary font-medium">+1 (555) 123-4567</p>
+                <p className="text-primary font-medium">+7 952 283-64-71</p>
               </CardContent>
             </Card>
 
@@ -64,8 +64,8 @@ const Contact = () => {
               <CardContent>
                 <p className="text-muted-foreground mb-2">Our headquarters</p>
                 <p className="text-primary font-medium">
-                  123 Cyber Street<br />
-                  Tech City, TC 12345
+                  Karachi, Sindh<br />
+                  Pakistan
                 </p>
               </CardContent>
             </Card>

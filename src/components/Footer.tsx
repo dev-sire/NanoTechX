@@ -1,6 +1,6 @@
-import { Shield, Mail, Phone, MapPin, Linkedin, Twitter, Github } from "lucide-react";
+import { Shield, Mail, Phone, MapPin, Linkedin, Instagram, Facebook } from "lucide-react";
 import { Link } from "react-router-dom";
-import nanotechxlogo from "@/assets/nanotechx.png";
+import nanotechxlogo from "@/assets/nano_techx_logo.png";
 
 const Footer = () => {
   return (
@@ -10,9 +10,9 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <img src={nanotechxlogo} alt="logo" className="h-[42px] w-[35px]" />
+              <img src={nanotechxlogo} alt="logo" className="h-[42px] w-[42px]" />
               <span className="text-xl font-bold text-[#3ab54a]">
-                NanoTechX
+                NANOTECHX
               </span>
             </div>
             <p className="text-muted-foreground mb-6 max-w-md">
@@ -20,14 +20,14 @@ const Footer = () => {
               to protect businesses and individuals from cyber threats in the digital world.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="p-2 bg-cyber-surface rounded-lg hover:bg-cyber-surface-hover transition-colors">
+              <a href="https://www.linkedin.com/company/nanotechx/" target="_blank" className="p-2 bg-cyber-surface rounded-lg hover:bg-cyber-surface-hover transition-colors">
                 <Linkedin className="h-5 w-5 text-muted-foreground hover:text-primary" />
               </a>
-              <a href="#" className="p-2 bg-cyber-surface rounded-lg hover:bg-cyber-surface-hover transition-colors">
-                <Twitter className="h-5 w-5 text-muted-foreground hover:text-primary" />
+              <a href="https://www.instagram.com/nanotechx_/" target="_blank" className="p-2 bg-cyber-surface rounded-lg hover:bg-cyber-surface-hover transition-colors">
+                <Instagram className="h-5 w-5 text-muted-foreground hover:text-primary" />
               </a>
-              <a href="#" className="p-2 bg-cyber-surface rounded-lg hover:bg-cyber-surface-hover transition-colors">
-                <Github className="h-5 w-5 text-muted-foreground hover:text-primary" />
+              <a href="https://www.facebook.com/nanotechx" target="_blank" className="p-2 bg-cyber-surface rounded-lg hover:bg-cyber-surface-hover transition-colors">
+                <Facebook className="h-5 w-5 text-muted-foreground hover:text-primary" />
               </a>
             </div>
           </div>
@@ -102,15 +102,15 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <div className="flex items-center gap-3">
               <Mail className="h-5 w-5 text-primary" />
-              <span className="text-muted-foreground">contact@nanotechx.com</span>
+              <span className="text-muted-foreground">info@nanotechx.org</span>
             </div>
             <div className="flex items-center gap-3">
               <Phone className="h-5 w-5 text-primary" />
-              <span className="text-muted-foreground">+1 (555) 123-4567</span>
+              <span className="text-muted-foreground">+7 952 283-64-71</span>
             </div>
             <div className="flex items-center gap-3">
               <MapPin className="h-5 w-5 text-primary" />
-              <span className="text-muted-foreground">123 Cyber Street, Tech City</span>
+              <span className="text-muted-foreground">Karachi, Pakistan</span>
             </div>
           </div>
         </div>
@@ -118,7 +118,7 @@ const Footer = () => {
         {/* Bottom */}
         <div className="border-t border-border/50 pt-8 text-center">
           <p className="text-muted-foreground">
-            © 2024 NanoTechx. All rights reserved. | Protecting your digital future.
+            © 2025 nanotechx.org All rights reserved. | Protecting your digital future.
           </p>
         </div>
       </div>

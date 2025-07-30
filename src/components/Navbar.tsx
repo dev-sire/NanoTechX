@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import nanotechxlogo from "@/assets/nanotechx.png";
+import nanotechxlogo from "@/assets/nano_techx_logo.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -69,9 +69,9 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
-            <img src={nanotechxlogo} alt="logo" className="h-[42px] w-[35px]" />
+            <img src={nanotechxlogo} alt="logo" className="h-[42px] w-[42px]" />
             <span className="text-xl font-bold text-[#3ab54a]">
-              NanoTechX
+              NANOTECHX
             </span>
           </Link>
 

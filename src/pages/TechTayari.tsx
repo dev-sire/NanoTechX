@@ -10,7 +10,6 @@ import { useIsMobile } from "@/hooks/use-mobile";
 const TechTayari = () => {
 
   const isMobile = useIsMobile()
-  console.log(isMobile)
   
   const tracks = [
     {
@@ -93,8 +92,8 @@ const TechTayari = () => {
 
   const handleDownloadPoster = () => {
     const link = document.createElement('a');
-    link.href = '/poster.png';
-    link.download = 'cisco-tech.jpg';
+    link.href = '/Poster.pdf';
+    link.download = 'Poster';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -331,7 +330,7 @@ const TechTayari = () => {
             </Button>
           </div>
           <p className="text-sm text-muted-foreground mt-6">
-            Questions? Contact us at <span className="text-primary">techtayari@nanotechx.com</span>
+            Questions? Contact us at <span className="text-primary">info@nanotechx.org</span>
           </p>
         </div>
       </section>
