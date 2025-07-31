@@ -20,6 +20,7 @@ import ciscoTechImage from "@/assets/cisco-tech.jpg";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import acmLogo from "@/assets/acm_sigsac.png";
+import acmBahriaLogo from "@/assets/acm_bahria.png"
 import aieysLogo from "@/assets/aieys.jpg";
 import netacadLogo from "@/assets/netacad_logo.png";
 import ciscoCommunityLogo from "@/assets/cisco_community.jpg"
@@ -30,6 +31,7 @@ const TechTayari = () => {
 
   const partnerLogos = [
     { logo: acmLogo, name: "ACM SIGSAC DUET" },
+    { logo: acmBahriaLogo, name: "ACM Bahria University" },
     { logo: aieysLogo, name: "AI Explains You Science" },
     { logo: netacadLogo, name: "Cisco Networking Academy" },
     { logo: ciscoCommunityLogo, name: "Cisco Community Pakistan" },
@@ -199,18 +201,16 @@ const TechTayari = () => {
       </section>
 
       {/* Partners and Collaborators */}
-
-      <section 
+      <section
         ref={partnersObserver.ref}
         className="py-20 bg-cyber-surface/30 overflow-hidden"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div 
-            className={`text-center mb-16 transition-all duration-1000 ${
-              partnersObserver.isIntersecting 
-                ? 'animate-reveal-fade opacity-100' 
+          <div
+            className={`text-center mb-16 transition-all duration-1000 ${partnersObserver.isIntersecting
+                ? 'animate-reveal-fade opacity-100'
                 : 'opacity-0 translate-y-10'
-            }`}
+              }`}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Our <span className="bg-gradient-primary bg-clip-text text-transparent">Strategic Alliances</span>
@@ -221,17 +221,16 @@ const TechTayari = () => {
           </div>
 
           {/* Infinite Carousel */}
-          <div className="relative">
-            <div className="flex animate-slide-infinite gap-8 items-center">
-              {/* First set of logos */}
-              <div className="flex gap-8 items-center min-w-max">
-                {partnerLogos.map((partner, index) => (
+          <div className="relative overflow-hidden w-full">
+            <div className="flex w-max animate-slide-infinite">
+              {[...Array(2)].flatMap((_, i) =>
+                partnerLogos.map((partner, index) => (
                   <div
-                    key={index}
-                    className="group hover:scale-110 transition-all duration-300 cursor-pointer flex-shrink-0"
+                    key={`${i}-${index}`}
+                    className="group transition-transform duration-300 cursor-pointer px-4 flex-shrink-0"
                   >
-                    <div className="w-60 h-40 bg-card border border-border/50 rounded-xl flex flex-col items-center justify-center p-6 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300">
-                      <div className="relative w-full h-20 mb-4 overflow-hidden"> {/* Container for consistent image sizing */}
+                    <div className="w-48 sm:w-60 aspect-[3/2] bg-card border border-border/50 rounded-xl flex flex-col items-center justify-center p-4 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300">
+                      <div className="relative w-full h-20 mb-3 overflow-visible">
                         <img
                           src={partner.logo}
                           alt={`${partner.name} logo`}
@@ -243,29 +242,8 @@ const TechTayari = () => {
                       </span>
                     </div>
                   </div>
-                ))}
-              </div>
- 
-              {/* Duplicate set for seamless loop */}
-              <div className="flex gap-8 items-center min-w-max">
-                {partnerLogos.map((partner, index) => (
-                  <div 
-                    key={`dup-${index}`} 
-                    className="group hover:scale-110 transition-all duration-300 cursor-pointer flex-shrink-0"
-                  >
-                    <div className="w-60 h-40 bg-card border border-border/50 rounded-xl flex flex-col items-center justify-center p-6 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300">
-                      <img 
-                        src={partner.logo} 
-                        alt={`${partner.name} logo`}
-                        className="h-16 w-auto mb-4 group-hover:scale-110 transition-transform duration-300 object-contain"
-                      />
-                      <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors duration-300 text-center">
-                        {partner.name}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
+                ))
+              )}
             </div>
           </div>
         </div>

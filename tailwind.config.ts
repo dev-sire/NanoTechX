@@ -150,7 +150,7 @@ export default {
 				'glow': 'glow 2s ease-in-out infinite alternate',
 				'reveal-fade': 'reveal-fade 0.8s ease-out forwards',
 				'reveal-blur': 'reveal-blur 1.2s ease-out forwards',
-				'slide-infinite': 'slide-infinite 30s linear infinite'
+				'slide-infinite': 'slide-infinite 10s linear infinite'
 			}
 		}
 	},
