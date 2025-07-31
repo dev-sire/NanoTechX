@@ -33,7 +33,7 @@ const Contact = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-2">Send us an email anytime</p>
-                <p className="text-primary font-medium">info@nanotechx.org</p>
+                <p className="text-primary font-medium">contact@nanotechx.org</p>
               </CardContent>
             </Card>
 

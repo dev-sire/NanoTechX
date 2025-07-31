@@ -102,7 +102,7 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <div className="flex items-center gap-3">
               <Mail className="h-5 w-5 text-primary" />
-              <span className="text-muted-foreground">info@nanotechx.org</span>
+              <span className="text-muted-foreground">contact@nanotechx.org</span>
             </div>
             <div className="flex items-center gap-3">
               <Phone className="h-5 w-5 text-primary" />

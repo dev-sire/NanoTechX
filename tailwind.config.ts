@@ -132,6 +132,14 @@ export default {
 						filter: 'blur(0px)',
 						transform: 'scale(1)'
 					}
+				},
+				'slide-infinite': {
+					'0%': {
+						transform: 'translateX(0)'
+					},
+					'100%': {
+						transform: 'translateX(-50%)'
+					}
 				}
 			},
 			animation: {
@@ -141,7 +149,8 @@ export default {
 				'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
 				'glow': 'glow 2s ease-in-out infinite alternate',
 				'reveal-fade': 'reveal-fade 0.8s ease-out forwards',
-				'reveal-blur': 'reveal-blur 1.2s ease-out forwards'
+				'reveal-blur': 'reveal-blur 1.2s ease-out forwards',
+				'slide-infinite': 'slide-infinite 30s linear infinite'
 			}
 		}
 	},

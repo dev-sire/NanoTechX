@@ -3,13 +3,40 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { ExternalLink, Users, Clock, Award, BookOpen, Code, Shield, Network, Brain, Database, Server } from "lucide-react";
+import { 
+  ExternalLink, 
+  Users, 
+  Clock, 
+  Award, 
+  BookOpen, 
+  Code, 
+  Shield, 
+  Network, 
+  Brain, 
+  Database, 
+  Server 
+} from "lucide-react";
 import ciscoTechImage from "@/assets/cisco-tech.jpg";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import acmLogo from "@/assets/acm_sigsac.png";
+import aieysLogo from "@/assets/aieys.jpg";
+import netacadLogo from "@/assets/netacad_logo.png";
+import ciscoCommunityLogo from "@/assets/cisco_community.jpg"
 
 const TechTayari = () => {
 
-  const isMobile = useIsMobile()
+  const partnersObserver = useIntersectionObserver({ threshold: 0.2 });
+
+  const partnerLogos = [
+    { logo: acmLogo, name: "ACM SIGSAC DUET" },
+    { logo: aieysLogo, name: "AI Explains You Science" },
+    { logo: netacadLogo, name: "Cisco Networking Academy" },
+    { logo: ciscoCommunityLogo, name: "Cisco Community Pakistan" },
+  ];
+  
+
+  const isMobile = useIsMobile();
   
   const tracks = [
     {
@@ -167,6 +194,79 @@ const TechTayari = () => {
             <p className="animate-reveal-blur [animation-delay:1500ms] opacity-0 text-sm text-muted-foreground mt-4">
               Limited seats available • Earn a Free Digital Badge • Industry certification
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Partners and Collaborators */}
+
+      <section 
+        ref={partnersObserver.ref}
+        className="py-20 bg-cyber-surface/30 overflow-hidden"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div 
+            className={`text-center mb-16 transition-all duration-1000 ${
+              partnersObserver.isIntersecting 
+                ? 'animate-reveal-fade opacity-100' 
+                : 'opacity-0 translate-y-10'
+            }`}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Our <span className="bg-gradient-primary bg-clip-text text-transparent">Strategic Alliances</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Working alongside leading societies and organizations to bring you the best technology education experience.
+            </p>
+          </div>
+
+          {/* Infinite Carousel */}
+          <div className="relative">
+            <div className="flex animate-slide-infinite gap-8 items-center">
+              {/* First set of logos */}
+              <div className="flex gap-8 items-center min-w-max">
+                {partnerLogos.map((partner, index) => (
+                  <div
+                    key={index}
+                    className="group hover:scale-110 transition-all duration-300 cursor-pointer flex-shrink-0"
+                  >
+                    <div className="w-60 h-40 bg-card border border-border/50 rounded-xl flex flex-col items-center justify-center p-6 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300">
+                      <div className="relative w-full h-20 mb-4 overflow-hidden"> {/* Container for consistent image sizing */}
+                        <img
+                          src={partner.logo}
+                          alt={`${partner.name} logo`}
+                          className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                        />
+                      </div>
+                      <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors duration-300 text-center">
+                        {partner.name}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+ 
+              {/* Duplicate set for seamless loop */}
+              <div className="flex gap-8 items-center min-w-max">
+                {partnerLogos.map((partner, index) => (
+                  <div 
+                    key={`dup-${index}`} 
+                    className="group hover:scale-110 transition-all duration-300 cursor-pointer flex-shrink-0"
+                  >
+                    <div className="w-60 h-40 bg-card border border-border/50 rounded-xl flex flex-col items-center justify-center p-6 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300">
+                      <img 
+                        src={partner.logo} 
+                        alt={`${partner.name} logo`}
+                        className="h-16 w-auto mb-4 group-hover:scale-110 transition-transform duration-300 object-contain"
+                      />
+                      <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors duration-300 text-center">
+                        {partner.name}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -330,7 +430,7 @@ const TechTayari = () => {
             </Button>
           </div>
           <p className="text-sm text-muted-foreground mt-6">
-            Questions? Contact us at <span className="text-primary">info@nanotechx.org</span>
+            Questions? Contact us at <span className="text-primary">contact@nanotechx.org</span>
           </p>
         </div>
       </section>
