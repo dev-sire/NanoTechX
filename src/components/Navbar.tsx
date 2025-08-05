@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Menu, X, Shield, ChevronDown } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import nanotechxlogo from "@/assets/nano_techx_logo.png";
 
@@ -13,8 +19,11 @@ const Navbar = () => {
     { name: "Home", routePath: "/", hashId: "" },
     { name: "Services", routePath: "/", hashId: "services" },
     { name: "About", routePath: "/", hashId: "about" },
-    { name: "Tech Tayari", routePath: "/tech-tayari", hashId: "" },
     { name: "Contact", routePath: "/", hashId: "contact" },
+  ];
+
+  const initiativeItems = [
+    { name: "Tech Tayari", path: "/tech-tayari" },
   ];
 
   const handleNavClick = (item: typeof navItems[0]) => {
@@ -94,6 +103,22 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
+            {/* Initiatives Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center text-sm font-medium transition-colors duration-300 hover:text-primary text-muted-foreground whitespace-nowrap">
+                Initiatives
+                <ChevronDown className="ml-1 h-3 w-3" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-48">
+                {initiativeItems.map((item) => (
+                  <DropdownMenuItem key={item.name} asChild>
+                    <Link to={item.path} className="w-full">
+                      {item.name}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
 
           {/* CTA Button */}
@@ -134,6 +159,19 @@ const Navbar = () => {
                   {item.name}
                 </Link>
               ))}
+              <div className="border-t border-border pt-3 mt-3">
+                <span className="text-sm font-medium text-muted-foreground block mb-2">Initiatives</span>
+                {initiativeItems.map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.path}
+                    className="text-sm font-medium transition-colors duration-300 hover:text-primary text-muted-foreground block pl-4"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
               <Button variant="cyber" size="sm" className="w-fit">
                 Get Started
               </Button>

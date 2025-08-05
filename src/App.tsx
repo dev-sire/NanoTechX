@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import TechTayari from "./pages/TechTayari";
 import NotFound from "./pages/NotFound";
-import ScrollToTop from "./components/ScrollToTop";
+import Instructors from "./pages/Instructors";
 
 const queryClient = new QueryClient();
 
@@ -16,10 +16,10 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/tech-tayari" element={<TechTayari />} />
+          <Route path="/instructors" element={<Instructors />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
