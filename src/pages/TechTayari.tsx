@@ -11,7 +11,7 @@ import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import acmLogo from "@/assets/acm_sigsac.png";
 import acmBahriaLogo from "@/assets/acm_bahria.png"
 import aieysLogo from "@/assets/aieys.jpg";
-import netacadLogo from "@/assets/netacad_logo.png";
+import ciscoLogo from "@/assets/cisco_logo.png";
 import ciscoCommunityLogo from "@/assets/cisco_community.jpg"
 import GulIqbal from "@/assets/gul-iqbal.jpg";
 import WaqasKarim from "@/assets/waqas-karim.jpg";
@@ -25,7 +25,7 @@ const TechTayari = () => {
     { logo: acmLogo, name: "ACM SIGSAC DUET" },
     { logo: acmBahriaLogo, name: "ACM Bahria University" },
     { logo: aieysLogo, name: "AI Explains You Science" },
-    { logo: netacadLogo, name: "Cisco Networking Academy" },
+    { logo: ciscoLogo, name: "Cisco Networking Academy" },
     { logo: ciscoCommunityLogo, name: "Cisco Community Pakistan" },
   ];
   
