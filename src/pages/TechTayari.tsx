@@ -331,7 +331,7 @@ const TechTayari = () => {
               {
                 name: "Iftikhar A. Javed",
                 designation: "Network Engineer & Scrum Master",
-                company: "TDC NET",
+                company: "TDC Denmark",
                 image: IftikharJaved,
                 linkedin: "https://www.linkedin.com/in/iftikharjaved/"
               },
