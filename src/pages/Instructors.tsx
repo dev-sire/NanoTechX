@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import GulIqbal from "@/assets/gul-iqbal.jpg";
 import WaqasKarim from "@/assets/waqas-karim.jpg";
 import IftikharJaved from "@/assets/iftikhar-javed.jpg";
+import InamUllah from "@/assets/inam-sir.jpg"
 
 const Instructors = () => {
   // Sample instructor data - replace with real data
@@ -31,7 +32,7 @@ const Instructors = () => {
       id: 3,
       name: "Iftikhar A. Javed",
       designation: "Network Engineer & Scrum Master",
-      company: "TDC NET",
+      company: "TDC Denmark",
       image: IftikharJaved,
       linkedin: "https://www.linkedin.com/in/iftikharjaved/"
     },
@@ -42,6 +43,14 @@ const Instructors = () => {
       company: "Pakistan Telecommunication Authority (PTA)",
       image: "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=300&h=300&fit=crop&crop=face",
       linkedin: "https://www.linkedin.com/in/ameer-hamza-153271325/"
+    },
+    {
+      id: 5,
+      name: "Inam Ullah Khan",
+      designation: "Assistant Professor (AI), Founder-AI-Explain You Science (AIEYS)",
+      company: "Air University, Islamabad",
+      image: InamUllah,
+      linkedin: "https://www.linkedin.com/in/inam-ullah-khan-770b1174/"
     }
   ];
 
