@@ -84,7 +84,7 @@ export default {
 			boxShadow: {
 				'cyber': 'var(--shadow-cyber)',
 				'glow': 'var(--glow-green)',
-				'blink': 'var(--glow-white)',
+				'blink': 'var(--glow-black)',
 				'pulse': 'var(--pulse-green)'
 			},
 			keyframes: {

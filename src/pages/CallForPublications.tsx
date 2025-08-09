@@ -39,35 +39,49 @@ const topics: string[] = [
 const bookTitle = "Communication in UAV Networks: Design, Challenges, and Security Implications";
 
 const CallForPublications = () => {
-  // SEO: title, meta description, canonical, structured data
-  useEffect(() => {
-    const prevTitle = document.title;
 
-    document.title = "Call for Publications: UAV Networks Book";
+useEffect(() => {
+    const prevTitle = document.title;
+    const newTitle = "Call for Publications | UAV Networks (Scopus)";
+    const newDesc =
+      "Contribute Scopus-indexed chapters to Communication in UAV Networks: design, challenges, and security implications.";
+    document.title = newTitle;
     document.body.classList.add("bw-theme");
 
     const prevFavicon = document.querySelector('link[rel="icon"]');
     const prevFaviconHref = prevFavicon?.getAttribute("href");
 
-    // Set new favicon
+    const metaDesc = document.querySelector('meta[name="description"]') || document.createElement("meta");
+    metaDesc.setAttribute("name", "description");
+    metaDesc.setAttribute("content", newDesc);
+    if (!metaDesc.parentNode) document.head.appendChild(metaDesc);
+
     const metaLink = document.querySelector('link[rel="icon"]') || document.createElement("link");
     metaLink.setAttribute("rel", "icon");
     metaLink.setAttribute("href", "/analysis.ico");
     if (!metaLink.parentNode) document.head.appendChild(metaLink);
-
-    const metaDesc = document.querySelector('meta[name="description"]') || document.createElement("meta");
-    metaDesc.setAttribute("name", "description");
-    metaDesc.setAttribute(
-      "content",
-      "Submit Scopus-indexed book chapters on Communication in UAV Networks—design, challenges, and security."
-    );
-    if (!metaDesc.parentNode) document.head.appendChild(metaDesc);
 
     const linkCanonical = document.querySelector('link[rel="canonical"]') || document.createElement("link");
     linkCanonical.setAttribute("rel", "canonical");
     linkCanonical.setAttribute("href", window.location.href);
     if (!linkCanonical.parentNode) document.head.appendChild(linkCanonical);
 
+    // Open Graph & Twitter tags to avoid default site meta
+    const ensureMeta = (selector: string, attrs: Record<string, string>) => {
+      let el = document.querySelector(selector) as HTMLMetaElement | null;
+      if (!el) {
+        el = document.createElement("meta");
+        document.head.appendChild(el);
+      }
+      Object.entries(attrs).forEach(([k, v]) => el!.setAttribute(k, v));
+    };
+    ensureMeta('meta[property="og:title"]', { property: "og:title", content: newTitle });
+    ensureMeta('meta[property="og:description"]', { property: "og:description", content: newDesc });
+    ensureMeta('meta[property="og:type"]', { property: "og:type", content: "website" });
+    ensureMeta('meta[property="og:url"]', { property: "og:url", content: window.location.href });
+    ensureMeta('meta[name="twitter:card"]', { name: "twitter:card", content: "summary" });
+    ensureMeta('meta[name="twitter:title"]', { name: "twitter:title", content: newTitle });
+    ensureMeta('meta[name="twitter:description"]', { name: "twitter:description", content: newDesc });
     const ldJson = document.createElement("script");
     ldJson.type = "application/ld+json";
     ldJson.id = "ld-call-for-publications";
@@ -200,7 +214,7 @@ const CallForPublications = () => {
             <CardContent>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {editors.map((e) => (
-                  <div key={e.name} className="group rounded-lg border border-border bg-background/50 p-4 transition-all duration-300 hover:shadow-blink hover-scale">
+                  <div key={e.name} className="group rounded-lg border-2 border-border bg-background/50 p-4 transition-all duration-300 hover:shadow-blink hover-scale">
                     <div className="flex items-center gap-3">
                       <Avatar>
                         <AvatarFallback>{e.initials || initialsFor(e.name)}</AvatarFallback>
@@ -224,7 +238,7 @@ const CallForPublications = () => {
               <h2 className="text-lg font-semibold">Ready to contribute?</h2>
               <p className="text-sm text-muted-foreground">Submit your Scopus-ready chapter to be part of this edited volume.</p>
             </div>
-            <div className="flex gap-3">
+            <div className="flex flex-col md:flex-row gap-3">
               <Button variant="cyber-outline" onClick={onPoster} aria-label="Download poster bottom">
                 <FileDown className="mr-2" /> Download Poster
               </Button>
