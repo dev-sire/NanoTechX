@@ -23,7 +23,8 @@ const Navbar = () => {
   ];
 
   const initiativeItems = [
-    { name: "Tech Tayari", path: "/tech-tayari" },
+    { name: "Tech Tayari 1.0", path: "/tech-tayari" },
+    { name: "Call for Publications", path: "/call-for-publications" },
   ];
 
   const handleNavClick = (item: typeof navItems[0]) => {

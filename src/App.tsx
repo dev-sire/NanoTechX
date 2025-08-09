@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import TechTayari from "./pages/TechTayari";
 import NotFound from "./pages/NotFound";
 import Instructors from "./pages/Instructors";
+import CallForPublications from "./pages/CallForPublications";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/tech-tayari" element={<TechTayari />} />
           <Route path="/instructors" element={<Instructors />} />
+          <Route path="/call-for-publications" element={<CallForPublications />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
