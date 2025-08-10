@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { CheckCircle2, FileDown, Send } from "lucide-react";
 import { toast } from "sonner";
+import Collaborators from "@/components/cfp/Collaborators";
 
 const editors = [
   { name: "Hafiz Muhammad Attaullah", role: "Faculty of Computing and Informatics", org: "Universiti Telekom, Multimedia University, Cyberjaya, Malaysia", initials: "HA" },
@@ -124,12 +125,14 @@ useEffect(() => {
     return parts.map((p) => p[0]).join("").slice(0, 2).toUpperCase();
   }, []);
 
+  const dateline = new Date().toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
+
   return (
-    <div className="relative pt-24">{/* offset for fixed local navbar */}
+    <div className="relative pt-24 paper-texture">{/* offset for fixed local navbar */}
       {/* Minimal monochrome top bar (page-specific) */}
       <div className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/80 backdrop-blur">
         <div className="mx-auto max-w-6xl h-16 px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          <span className="text-lg font-semibold tracking-wide">Call for Publications</span>
+          <span className="text-lg font-bold tracking-wide">Call for Publications</span>
           <nav className="hidden sm:flex items-center gap-6 text-sm text-muted-foreground">
             <a href="#scope" className="hover:text-foreground transition-colors">Aim & Scope</a>
             <a href="#topics" className="hover:text-foreground transition-colors">Topics</a>
@@ -138,23 +141,28 @@ useEffect(() => {
         </div>
       </div>
       {/* Decorative background */}
-      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-primary/20 blur-3xl" />
-        <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-primary/10 blur-2xl" />
-        <div className="absolute inset-0 opacity-[0.04] bg-[radial-gradient(circle_at_1px_1px,hsl(var(--foreground))/0.7_1px,transparent_1px)] [background-size:16px_16px]" />
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="paper-fold" />
+        <div className="halftone-corner halftone-top-left" />
+        <div className="halftone-corner halftone-bottom-right" />
+        <div className="absolute inset-0 opacity-[0.06] bg-[radial-gradient(1px_1px_at_1px_1px,hsl(var(--foreground)/0.8)_1px,transparent_1px)] [background-size:16px_16px]" />
       </div>
 
       <header className="relative">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           <div className="animate-fade-in">
-            <span className="inline-block rounded-full border border-border bg-cyber-surface px-3 py-1 text-xs text-muted-foreground">Scopus Indexed Edited Volume</span>
-            <h1 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight bg-gradient-primary bg-clip-text text-transparent">
+            <div className="text-center ornament-divider pb-4">
+              <h2 className="masthead-title news-serif text-3xl sm:text-4xl tracking-[0.08em]">UAV Networks Bulletin</h2>
+              <p className="dateline text-xs mt-1">Vol. 1 • No. 1 — {dateline}</p>
+            </div>
+            <span className="inline-block rounded border border-border bg-cyber-surface px-3 py-1 text-[11px] tracking-wide text-muted-foreground">Scopus Indexed Edited Volume</span>
+            <h1 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight news-serif">
               Call for Publications
             </h1>
             <p className="mt-3 text-base sm:text-lg text-muted-foreground max-w-2xl">
               Inviting high-quality chapters for our upcoming book titled:
             </p>
-            <p className="mt-2 text-lg sm:text-xl font-semibold text-foreground">{bookTitle}</p>
+            <p className="mt-2 text-lg sm:text-xl font-semibold text-foreground news-serif">{bookTitle}</p>
 
             <div className="mt-6 flex flex-wrap gap-3">
               <Button variant="cyber" onClick={onPoster} aria-label="Download poster">
@@ -171,33 +179,35 @@ useEffect(() => {
       <main>
         {/* Aim & Scope */}
         <section id="scope" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8">
-          <Card className="border-border bg-cyber-surface/60 backdrop-blur supports-[backdrop-filter]:bg-cyber-surface/60 animate-fade-in">
+          <Card className="border-border border-2 bg-cyber-surface/60 backdrop-blur supports-[backdrop-filter]:bg-cyber-surface/60 animate-fade-in">
             <CardHeader>
               <CardTitle className="text-xl sm:text-2xl">Aim & Scope</CardTitle>
             </CardHeader>
             <CardContent className="text-sm sm:text-base text-muted-foreground">
-              <p>
+              <p className="drop-cap">
                 This edited book focuses on end-to-end communication aspects of Unmanned Aerial Vehicle (UAV) networks,
                 covering architectures, protocols, mobility, reliability, security and privacy. We welcome
                 contributions that advance theory, propose novel designs, demonstrate empirical evaluations, or
                 showcase practical deployments across civil, industrial and defense contexts.
               </p>
+              <div className="pull-quote mt-4">
+                “From resilient swarm routing to zero-trust security, we’re curating practical, peer-reviewed advances for real-world UAV systems.”
+              </div>
             </CardContent>
           </Card>
         </section>
 
         {/* Topics */}
         <section id="topics" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-4">
-          <Card className="border-border bg-cyber-surface/60 backdrop-blur animate-fade-in">
+          <Card className="border-border border-2 bg-cyber-surface/60 backdrop-blur animate-fade-in">
             <CardHeader>
-              <CardTitle className="text-xl sm:text-2xl">List of Topics</CardTitle>
+              <CardTitle className="text-xl sm:text-2xl">List of Topics (include but not limited to)</CardTitle>
             </CardHeader>
             <CardContent>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <ul className="news-columns column-rule [list-style:disc] pl-5">
                 {topics.map((t) => (
-                  <li key={t} className="flex items-start gap-2 rounded-md border border-border bg-background/40 p-3">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 text-primary" />
-                    <span className="text-sm text-foreground/90">{t}</span>
+                  <li key={t} className="mb-2 text-sm text-foreground/90">
+                    {t}
                   </li>
                 ))}
               </ul>
@@ -207,14 +217,14 @@ useEffect(() => {
 
         {/* Editors */}
         <section id="editors" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8">
-          <Card className="border-border bg-cyber-surface/60 backdrop-blur animate-fade-in">
+          <Card className="border-border border-2 bg-cyber-surface/60 backdrop-blur animate-fade-in">
             <CardHeader>
               <CardTitle className="text-xl sm:text-2xl">Editors</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {editors.map((e) => (
-                  <div key={e.name} className="group rounded-lg border-2 border-border bg-background/50 p-4 transition-all duration-300 hover:shadow-blink hover-scale">
+                  <div key={e.name} className="group rounded-lg border-4 border-border bg-background/50 p-4 transition-all duration-300 hover:shadow-blink hover-scale">
                     <div className="flex items-center gap-3">
                       <Avatar>
                         <AvatarFallback>{e.initials || initialsFor(e.name)}</AvatarFallback>
@@ -231,6 +241,9 @@ useEffect(() => {
           </Card>
         </section>
 
+        {/* Collaborators */}
+        <Collaborators />
+
         {/* Bottom CTA */}
         <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-wrap items-center justify-between gap-4 rounded-xl border border-border bg-cyber-surface p-5 animate-fade-in">
@@ -238,7 +251,7 @@ useEffect(() => {
               <h2 className="text-lg font-semibold">Ready to contribute?</h2>
               <p className="text-sm text-muted-foreground">Submit your Scopus-ready chapter to be part of this edited volume.</p>
             </div>
-            <div className="flex flex-col md:flex-row gap-3">
+            <div className="flex gap-3">
               <Button variant="cyber-outline" onClick={onPoster} aria-label="Download poster bottom">
                 <FileDown className="mr-2" /> Download Poster
               </Button>

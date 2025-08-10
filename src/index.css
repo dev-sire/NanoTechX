@@ -267,3 +267,106 @@ body.bw-theme::before {
   pointer-events: none;
   z-index: -1;
 }
+
+/* Newspaper utilities */
+@layer utilities {
+  .paper-texture {
+    background-color: hsl(var(--background));
+    background-image:
+      repeating-linear-gradient(0deg, hsl(var(--foreground) / 0.03) 0px, hsl(var(--foreground) / 0.03) 1px, transparent 1px, transparent 24px),
+      repeating-linear-gradient(90deg, hsl(var(--foreground) / 0.02) 0px, hsl(var(--foreground) / 0.02) 1px, transparent 1px, transparent 28px);
+    background-blend-mode: multiply;
+  }
+
+  .newspaper-rule {
+    position: relative;
+  }
+  .newspaper-rule::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: hsl(var(--foreground));
+    opacity: 0.2;
+    margin-top: 0.5rem;
+  }
+
+  .drop-cap:first-letter {
+    float: left;
+    font-size: 3rem;
+    line-height: 1;
+    padding-right: 0.25rem;
+    padding-top: 0.15rem;
+    font-weight: 700;
+    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    color: hsl(var(--foreground));
+  }
+
+  .news-serif {
+    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  }
+
+  .ink-shadow {
+    text-shadow: 0 1px 0 hsl(var(--foreground) / 0.15);
+  }
+
+  /* Newspaper enhancements */
+  .column-rule {
+    column-rule: 1px solid hsl(var(--foreground) / 0.15);
+  }
+  .news-columns {
+    column-gap: 2rem;
+  }
+  @media (min-width: 640px) {
+    .news-columns { column-count: 2; }
+  }
+
+  .ornament-divider {
+    position: relative;
+  }
+  .ornament-divider::before {
+    content: "";
+    display: block;
+    height: 1px;
+    background: repeating-linear-gradient(90deg, hsl(var(--foreground) / 0.3) 0 12px, transparent 12px 24px);
+    opacity: 0.6;
+    margin-bottom: 0.75rem;
+  }
+
+  .masthead-title {
+    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .dateline {
+    font-variant: small-caps;
+    letter-spacing: 0.08em;
+    opacity: 0.75;
+  }
+
+  .pull-quote {
+    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    font-style: italic;
+    color: hsl(var(--foreground) / 0.8);
+    border-left: 3px solid hsl(var(--foreground) / 0.2);
+    padding-left: 1rem;
+  }
+
+  .paper-fold {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, hsl(var(--foreground) / 0.05), transparent 40%);
+    pointer-events: none;
+  }
+
+  .halftone-corner {
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    background: radial-gradient(circle at 0 0, hsl(var(--foreground) / 0.2) 0 2px, transparent 2px) 0 0 / 12px 12px;
+    opacity: 0.07;
+    pointer-events: none;
+  }
+  .halftone-top-left { top: 0; left: 0; }
+  .halftone-bottom-right { bottom: 0; right: 0; transform: rotate(180deg); }
+}
