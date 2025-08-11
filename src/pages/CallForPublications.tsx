@@ -2,7 +2,7 @@ import { useEffect, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { CheckCircle2, FileDown, Send } from "lucide-react";
+import { FileDown, Send } from "lucide-react";
 import { toast } from "sonner";
 import Collaborators from "@/components/cfp/Collaborators";
 

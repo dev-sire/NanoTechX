@@ -1,45 +1,62 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Shield, Search, Users, Cpu, AlertTriangle, Award } from "lucide-react";
+import { Activity, GraduationCap, Landmark, ShieldCheck } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Services = () => {
   const services = [
     {
-      icon: Search,
-      title: "Cybersecurity Assessments",
-      description: "Comprehensive security assessments, penetration testing, consulting and audits to identify vulnerabilities and risks in your network, systems and web applications.",
-      features: ["Penetration Testing", "Vulnerability Assessment", "Risk Analysis", "Security Consulting"]
+      icon: ShieldCheck,
+      title: "VAPT (Vulnerability Assessment & Pen Testing)",
+      description:
+        "Identify and validate vulnerabilities across your apps, network, and cloud with expert-led assessment and clear remediation.",
+      features: [
+        "Automated + Manual Testing",
+        "Web, Mobile, APIs, Cloud",
+        "Network & Wi-Fi Security",
+        "Remediation Guidance",
+      ],
+      href: "/services/vapt",
     },
     {
-      icon: Users,
-      title: "Training & Education",
-      description: "Cybersecurity training and education programs for your employees and stakeholders to build a security-aware culture.",
-      features: ["Security Awareness", "Phishing Simulation", "Best Practices", "Compliance Training"]
+      icon: Landmark,
+      title: "GRC (Governance, Risk & Compliance)",
+      description:
+        "Align security with business through pragmatic governance, risk registers, and compliance programs (ISO 27001, SOC 2, GDPR).",
+      features: [
+        "Policy & Control Frameworks",
+        "Risk Registers & KPIs",
+        "ISO 27001, SOC 2, GDPR",
+        "Audit Readiness",
+      ],
+      href: "/services/grc",
     },
     {
-      icon: Cpu,
-      title: "Security Products",
-      description: "Advanced cybersecurity products including automation-based pentesting, firewalls, antivirus software, and intrusion detection systems.",
-      features: ["Automated Pentesting", "Advanced Firewalls", "Endpoint Protection", "SIEM Solutions"]
+      icon: Activity,
+      title: "Cyber Risk Assessments",
+      description:
+        "Quantify and prioritize cyber risk using threat-led assessments, heatmaps, and actionable mitigation roadmaps.",
+      features: [
+        "Threat Modeling",
+        "Likelihood/Impact Scoring",
+        "Risk Heatmaps",
+        "Mitigation Roadmaps",
+      ],
+      href: "/services/risk-assessments",
     },
     {
-      icon: Award,
-      title: "Industry Solutions",
-      description: "Customized cybersecurity solutions for specific industries such as healthcare, finance, and government sectors.",
-      features: ["Healthcare Security", "Financial Compliance", "Government Standards", "Custom Solutions"]
+      icon: GraduationCap,
+      title: "Corporate Cybersecurity Training",
+      description:
+        "Role-based programs, workshops and simulations that build a security-first culture across your organization.",
+      features: [
+        "Role-based Tracks",
+        "Secure Coding for Devs",
+        "Phishing Simulations",
+        "Hands-on Labs",
+      ],
+      href: "/services/corporate-training",
     },
-    {
-      icon: AlertTriangle,
-      title: "Threat Detection",
-      description: "Real-time threat monitoring and incident response services to protect against evolving cyber threats.",
-      features: ["24/7 Monitoring", "Incident Response", "Threat Intelligence", "Forensic Analysis"]
-    },
-    {
-      icon: Shield,
-      title: "Compliance & Audit",
-      description: "Ensure your organization meets industry standards and regulatory requirements with our compliance services.",
-      features: ["Regulatory Compliance", "Security Audits", "Policy Development", "Risk Management"]
-    }
   ];
 
   return (
@@ -82,8 +99,8 @@ const Services = () => {
                       </li>
                     ))}
                   </ul>
-                  <Button variant="cyber-ghost" size="sm" className="w-full">
-                    Learn More
+                  <Button asChild variant="cyber-ghost" size="sm" className="w-full">
+                    <Link to={service.href} aria-label={`Learn more about ${service.title}`}>Learn More</Link>
                   </Button>
                 </CardContent>
               </Card>
