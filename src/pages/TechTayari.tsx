@@ -489,7 +489,7 @@ const TechTayari = () => {
             </Button>
           </div>
           <p className="text-sm text-muted-foreground mt-6">
-            Questions? Contact us at <span className="text-primary">contact@nanotechx.org</span>
+            Questions? Contact us at <span className="text-primary">techtayari@nanotechx.org</span>
           </p>
         </div>
       </section>

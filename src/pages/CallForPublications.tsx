@@ -251,7 +251,7 @@ useEffect(() => {
               <h2 className="text-lg font-semibold">Ready to contribute?</h2>
               <p className="text-sm text-muted-foreground">Submit your Scopus-ready chapter to be part of this edited volume.</p>
             </div>
-            <div className="flex gap-3">
+            <div className="flex flex-col md:flex-row gap-3">
               <Button variant="cyber-outline" onClick={onPoster} aria-label="Download poster bottom">
                 <FileDown className="mr-2" /> Download Poster
               </Button>
