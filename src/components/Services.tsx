@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Activity, GraduationCap, Landmark, ShieldCheck } from "lucide-react";
+import { Activity, GraduationCap, Landmark, ShieldCheck, Bug, BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Services = () => {
@@ -56,6 +56,32 @@ const Services = () => {
         "Hands-on Labs",
       ],
       href: "/services/corporate-training",
+    },
+    {
+      icon: Bug,
+      title: "Malware Detection & Response",
+      description:
+        "Proactive detection, analysis, and containment of malware across endpoints and cloud.",
+      features: [
+        "EDR Deployment & Tuning",
+        "Threat Hunting",
+        "Sandbox Analysis",
+        "IOC/IOA Engineering",
+      ],
+      href: "/services/malware-detection",
+    },
+    {
+      icon: BookOpen,
+      title: "Undergraduate Guidance & Consulting",
+      description:
+        "Personalized mentoring, projects, and career guidance for students in cybersecurity and tech.",
+      features: [
+        "Resume & LinkedIn Review",
+        "Project Roadmaps",
+        "CTF & Lab Guidance",
+        "Interview Prep",
+      ],
+      href: "/services/undergraduate-guidance",
     },
   ];
 

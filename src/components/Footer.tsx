@@ -1,4 +1,4 @@
-import { Shield, Mail, Phone, MapPin, Linkedin, Instagram, Facebook } from "lucide-react";
+import { Shield, Mail, Phone, MapPin, Linkedin, Instagram, Facebook, LinkIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import nanotechxlogo from "@/assets/nano_techx_logo.png";
 
@@ -28,6 +28,9 @@ const Footer = () => {
               </a>
               <a href="https://www.facebook.com/nanotechx" target="_blank" className="p-2 bg-cyber-surface rounded-lg hover:bg-cyber-surface-hover transition-colors">
                 <Facebook className="h-5 w-5 text-muted-foreground hover:text-primary" />
+              </a>
+              <a href="https://linktr.ee/nanotechx" target="_blank" className="p-2 bg-cyber-surface rounded-lg hover:bg-cyber-surface-hover transition-colors">
+                <LinkIcon className="h-5 w-5 text-muted-foreground hover:text-primary" />
               </a>
             </div>
           </div>
@@ -69,28 +72,28 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Services</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  Security Assessment
+                <a href="/services/vapt" className="text-muted-foreground hover:text-primary transition-colors">
+                  VAPT (Vulnerability Assessment & Pen Testing)
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  Penetration Testing
+                <a href="/services/grc" className="text-muted-foreground hover:text-primary transition-colors">
+                  GRC (Governance, Risk & Compliance)
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  Training & Education
+                <a href="/services/risk-assessments" className="text-muted-foreground hover:text-primary transition-colors">
+                  Cyber Risk Assessments
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  Security Products
+                <a href="/services/corporate-training" className="text-muted-foreground hover:text-primary transition-colors">
+                  Corporate Cybersecurity Training
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  Compliance
+                <a href="/services/malware-detection" className="text-muted-foreground hover:text-primary transition-colors">
+                  Malware Detection & Response
                 </a>
               </li>
             </ul>

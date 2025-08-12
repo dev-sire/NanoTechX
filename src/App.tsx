@@ -12,6 +12,8 @@ import CorporateTraining from "./pages/services/CorporateTraining";
 import RiskAssessments from "./pages/services/RiskAssessments";
 import GRC from "./pages/services/GRC";
 import VAPT from "./pages/services/VAPT";
+import MalwareDetection from "./pages/services/MalwareDetection";
+import UndergraduateGuidance from "./pages/services/UndergraduateGuidance";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +32,8 @@ const App = () => (
           <Route path="/services/grc" element={<GRC />} />
           <Route path="/services/risk-assessments" element={<RiskAssessments />} />
           <Route path="/services/corporate-training" element={<CorporateTraining />} />
+          <Route path="/services/malware-detection" element={<MalwareDetection />} />
+          <Route path="/services/undergraduate-guidance" element={<UndergraduateGuidance />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -20,6 +20,18 @@ const CorporateTraining = () => (
       "Labs & hands-on exercises",
       "Certification prep options",
     ]}
+    secondarySection={{
+      title: "Training Tracks",
+      items: [
+        "Executive awareness for leadership",
+        "Secure coding & DevSecOps",
+        "SOC analyst & incident response basics",
+        "Phishing defense workshops",
+        "Cloud security fundamentals",
+        "Custom program design",
+      ],
+      columns: 3,
+    }}
     serviceId="corporate-training"
   />
 );

@@ -70,7 +70,7 @@ const About = () => {
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
                 <div className="bg-gradient-primary p-6 rounded-lg text-center text-primary-foreground">
-                  <div className="text-3xl font-bold">5+</div>
+                  <div className="text-3xl font-bold">6+</div>
                   <div className="text-sm opacity-90">Years Experience</div>
                 </div>
                 <div className="bg-cyber-surface p-6 rounded-lg text-center border border-border/50">

@@ -8,9 +8,11 @@ import GulIqbal from "@/assets/gul-iqbal.jpg";
 import WaqasKarim from "@/assets/waqas-karim.jpg";
 import IftikharJaved from "@/assets/iftikhar-javed.jpg";
 import InamUllah from "@/assets/inam-sir.jpg"
+import HafizMuhammadAttaullah from "@/assets/sir-attaullah.jpg";
+import AmanShahid from "@/assets/my-profile.jpg";
 
 const Instructors = () => {
-  // Sample instructor data - replace with real data
+
   const instructors = [
     {
       id: 1,
@@ -51,6 +53,22 @@ const Instructors = () => {
       company: "Air University, Islamabad",
       image: InamUllah,
       linkedin: "https://www.linkedin.com/in/inam-ullah-khan-770b1174/"
+    },
+    {
+      id: 6,
+      name: "Hafiz Muhammad Attaullah",
+      designation: "Founder | Lecturer | Master Trainer",
+      company: "NanoTechX | MAJU | Cisco",
+      image: HafizMuhammadAttaullah,
+      linkedin: "https://www.linkedin.com/in/attaullahshafiq10/"
+    },
+    {
+      id: 7,
+      name: "Aman Shahid",
+      designation: "Cyber Security Student",
+      company: "DUET",
+      image: AmanShahid,
+      linkedin: "https://www.linkedin.com/in/aman-shahid-32708a2b7/"
     }
   ];
 

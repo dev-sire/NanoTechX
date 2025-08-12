@@ -15,9 +15,14 @@ interface ServiceTemplateProps {
   seo: { title: string; description: string; slug: string };
   features: string[];
   serviceId: string;
+  // Optional customization props
+  featuresTitle?: string;
+  approachTitle?: string;
+  approachSteps?: Array<{ title: string; description: string }>;
+  secondarySection?: { title: string; items: string[]; columns?: 1 | 2 | 3 };
 }
 
-const ServiceTemplate = ({ icon: Icon, title, subtitle, seo, features, serviceId }: ServiceTemplateProps) => {
+const ServiceTemplate = ({ icon: Icon, title, subtitle, seo, features, serviceId, featuresTitle, approachTitle, approachSteps, secondarySection }: ServiceTemplateProps) => {
   useEffect(() => {
     const prevTitle = document.title;
     document.title = seo.title;
@@ -79,10 +84,30 @@ const ServiceTemplate = ({ icon: Icon, title, subtitle, seo, features, serviceId
   const containerRef = useRef<HTMLDivElement>(null);
   const glowStyle = useCursorGlowTrail({
     count: 5,
-    radius: 240,
-    intensity: 0.18,
+    radius: 350,
+    intensity: 0.19,
     targetRef: containerRef,
-  });
+});
+
+  // Section customization with sensible defaults
+  const featTitle = featuresTitle ?? "What you get";
+  const approachT = approachTitle ?? "Our Approach";
+  const steps =
+    approachSteps ?? [
+      { title: "Discovery", description: "Align on scope, environment, and success criteria." },
+      { title: "Execute", description: "Hands-on work with continuous updates and checkpoints." },
+      { title: "Deliver", description: "Clear findings, prioritized actions, and optional retest." },
+    ];
+  const secondary =
+    secondarySection ?? {
+      title: "Sample Deliverables",
+      items: [
+        "Executive summary with risk overview",
+        "Detailed findings with CVSS-like severity",
+        "Actionable remediation plan and timelines",
+      ],
+      columns: 3 as 1 | 2 | 3,
+    };
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -90,7 +115,7 @@ const ServiceTemplate = ({ icon: Icon, title, subtitle, seo, features, serviceId
   };
 
   return (
-    <div ref={containerRef} className="relative pt-24">
+    <div ref={containerRef} className="relative pt-24 overflow-hidden">
       {/* Background elements */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         {/* Cursor trail glow */}
@@ -111,7 +136,7 @@ const ServiceTemplate = ({ icon: Icon, title, subtitle, seo, features, serviceId
 
       <header className="relative">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10">
-          <div className="flex items-start gap-4">
+          <div className="flex flex-col md:flex-row items-start gap-4">
             <div className="w-14 h-14 rounded-lg bg-gradient-primary text-primary-foreground flex items-center justify-center shadow-glow animate-scale-in">
               <Icon className="w-7 h-7" />
             </div>
@@ -131,7 +156,7 @@ const ServiceTemplate = ({ icon: Icon, title, subtitle, seo, features, serviceId
         <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pb-6">
           <Card className="border-border bg-card/60 backdrop-blur supports-[backdrop-filter]:bg-card/60 animate-fade-in">
             <CardHeader>
-              <CardTitle className="text-xl">What you get</CardTitle>
+              <CardTitle className="text-xl">{featTitle}</CardTitle>
             </CardHeader>
             <CardContent>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -149,28 +174,18 @@ const ServiceTemplate = ({ icon: Icon, title, subtitle, seo, features, serviceId
         <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-4">
           <Card className="border-border bg-card/60 backdrop-blur supports-[backdrop-filter]:bg-card/60 animate-fade-in">
             <CardHeader>
-              <CardTitle className="text-xl">Our Approach</CardTitle>
+              <CardTitle className="text-xl">{approachT}</CardTitle>
             </CardHeader>
             <CardContent>
               <ol className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <li className="relative rounded-md p-4 border bg-background/40">
-                  <p className="text-sm font-medium">Discovery</p>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    Align on scope, environment, and success criteria.
-                  </p>
-                </li>
-                <li className="relative rounded-md p-4 border bg-background/40">
-                  <p className="text-sm font-medium">Execute</p>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    Hands-on work with continuous updates and checkpoints.
-                  </p>
-                </li>
-                <li className="relative rounded-md p-4 border bg-background/40">
-                  <p className="text-sm font-medium">Deliver</p>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    Clear findings, prioritized actions, and optional retest.
-                  </p>
-                </li>
+                {steps.map((s) => (
+                  <li key={s.title} className="relative rounded-md p-4 border bg-background/40">
+                    <p className="text-sm font-medium">{s.title}</p>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      {s.description}
+                    </p>
+                  </li>
+                ))}
               </ol>
             </CardContent>
           </Card>
@@ -179,13 +194,17 @@ const ServiceTemplate = ({ icon: Icon, title, subtitle, seo, features, serviceId
         <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-4">
           <Card className="border-border bg-card/60 backdrop-blur supports-[backdrop-filter]:bg-card/60 animate-fade-in">
             <CardHeader>
-              <CardTitle className="text-xl">Sample Deliverables</CardTitle>
+              <CardTitle className="text-xl">{secondary.title}</CardTitle>
             </CardHeader>
             <CardContent>
-              <ul className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                <li className="rounded-md p-4 border bg-background/40 text-sm">Executive summary with risk overview</li>
-                <li className="rounded-md p-4 border bg-background/40 text-sm">Detailed findings with CVSS-like severity</li>
-                <li className="rounded-md p-4 border bg-background/40 text-sm">Actionable remediation plan and timelines</li>
+              <ul
+                className={`grid grid-cols-1 ${secondary.columns === 2 ? 'sm:grid-cols-2' : secondary.columns === 3 ? 'sm:grid-cols-3' : 'sm:grid-cols-1'} gap-3`}
+              >
+                {secondary.items.map((item) => (
+                  <li key={item} className="rounded-md p-4 border bg-background/40 text-sm">
+                    {item}
+                  </li>
+                ))}
               </ul>
             </CardContent>
           </Card>
@@ -212,7 +231,7 @@ const ServiceTemplate = ({ icon: Icon, title, subtitle, seo, features, serviceId
                 </div>
                 <div className="sm:col-span-2">
                   <label className="text-sm">What do you need help with?</label>
-                  <Textarea name="message" required placeholder={`I'm interested in ${title}. Share timelines, scope, and any compliance needs...`} className="mt-1" rows={5} />
+                  <Textarea name="message" required placeholder={`I’m interested in ${title}. Share timelines, scope, and any compliance needs...`} className="mt-1" rows={5} />
                 </div>
                 <div className="sm:col-span-2 flex items-center justify-end gap-3">
                   <Button variant="cyber-outline" type="button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>

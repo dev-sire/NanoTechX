@@ -17,6 +17,7 @@ import GulIqbal from "@/assets/gul-iqbal.jpg";
 import WaqasKarim from "@/assets/waqas-karim.jpg";
 import IftikharJaved from "@/assets/iftikhar-javed.jpg";
 import TechHiearchy from "@/assets/Tech_Hiearchy.jpg"
+import MarketSmile from "@/assets/market_smiling.jpg";
 
 const TechTayari = () => {
 
@@ -28,7 +29,8 @@ const TechTayari = () => {
     { logo: aieysLogo, name: "AI Explains You Science" },
     { logo: ciscoLogo, name: "Cisco Networking Academy" },
     { logo: ciscoCommunityLogo, name: "Cisco Community Pakistan" },
-    { logo: TechHiearchy, name: "Tech Hiearchy" }
+    { logo: TechHiearchy, name: "Tech Hiearchy" },
+    { logo: MarketSmile, name: "Market Smiling" }
   ];
   
 
