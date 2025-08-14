@@ -10,40 +10,30 @@ const editors = [
   { 
     name: "Hafiz Muhammad Attaullah",
     position: "Cyber Security Researcher",
-    address: "PG Lab, Faculty of Computing and Informatics, Multimedia University, Malaysia",
-    telephone: "attaullah@ieee.org",
     affiliation: "Faculty of Computing and Informatics, Multimedia University, Malaysia",
     initials: "HMA"
   },
   { 
     name: "Dr. Inam Ullah Khan",
     position: "Post Doctoral Researcher",
-    address: "Faculty of Computing and Informatics, Multimedia University, Malaysia",
-    telephone: "inamullahkhan05@ieee.org",
     affiliation: "Faculty of Computing and Informatics, Multimedia University, Malaysia",
     initials: "IK"
   },
   { 
     name: "Dr. Keshav Kaushik",
     position: "Professor",
-    address: "H: 476-C/34 Tara Hotel Street, Janta Colony, Rohtak, Haryana, India",
-    telephone: "officialkeshavkaushik@gmail.com, keshav.kaushik@sharda.ac.in",
     affiliation: "Center for Cyber Security and Cryptology, Sharda School of Computer Science & Engineering, Sharda University, Greater Noida, Uttar Pradesh, India",
     initials: "KK"
   },
   { 
     name: "Dr. Al-Sakib Khan Pathan",
     position: "Professor",
-    address: "H: 14, R: 3/C, S: 9, Uttara 1230, Dhaka, Bangladesh",
-    telephone: "sakib.pathan@gmail.com",
     affiliation: "Department of Computer Science and Engineering, United International University, Bangladesh",
     initials: "AKP"
   },
   { 
     name: "Dr. Ahthasham Sajid",
     position: "Associate Professor",
-    address: "Faculty of Computing and Informatics, Multimedia University, Malaysia",
-    telephone: "ahthasham.sajid@riphah.edu.pk",
     affiliation: "Center for Cyber Security and Cryptology, Sharda School of Computer Science & Engineering, Sharda University, Greater Noida, Uttar Pradesh, India",
     initials: "KK"
   },
@@ -223,7 +213,7 @@ const CallForPublications = () => {
       {/* Minimal monochrome top bar (page-specific) */}
       <div className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/80 backdrop-blur">
         <div className="mx-auto max-w-6xl h-16 px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          <span className="text-sm font-semibold tracking-wide">Call for Publications</span>
+          <span className="text-md font-bold tracking-wide">Call for Publications</span>
             <nav className="hidden sm:flex items-center gap-6 text-sm text-muted-foreground">
               <a href="#scope" className="hover:text-foreground transition-colors">Aim & Scope</a>
               <a href="#topics" className="hover:text-foreground transition-colors">Topics</a>
@@ -332,8 +322,6 @@ const CallForPublications = () => {
                         <h3 className="font-semibold text-lg text-foreground news-serif">{e.name}</h3>
                         <p className="text-sm text-muted-foreground font-medium mb-2">{e.position}</p>
                         <div className="space-y-1 text-sm text-muted-foreground">
-                          <p><span className="font-medium">Address:</span> {e.address}</p>
-                          <p><span className="font-medium">Email:</span> {e.telephone}</p>
                           <p><span className="font-medium">Affiliation:</span> {e.affiliation}</p>
                         </div>
                       </div>
