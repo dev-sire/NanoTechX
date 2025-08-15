@@ -5,6 +5,7 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import Team from "@/components/Team";
 
 const Index = () => {
   const heroObserver = useIntersectionObserver({ threshold: 0.2 });
@@ -12,6 +13,7 @@ const Index = () => {
   const aboutObserver = useIntersectionObserver({ threshold: 0.2 });
   const contactObserver = useIntersectionObserver({ threshold: 0.2 });
   const footerObserver = useIntersectionObserver({ threshold: 0.2 });
+  const teamObserver = useIntersectionObserver({ threshold: 0.2 });
 
   return (
     <div className="min-h-screen bg-background">
@@ -45,6 +47,16 @@ const Index = () => {
         }`}
       >
         <About />
+      </div>
+      <div 
+        ref={teamObserver.ref}
+        className={`transition-all duration-1000 delay-500 ${
+          teamObserver.isIntersecting 
+            ? 'animate-reveal-fade opacity-100' 
+            : 'opacity-0 translate-y-10'
+        }`}
+      >
+        <Team />
       </div>
       <div 
         ref={contactObserver.ref}

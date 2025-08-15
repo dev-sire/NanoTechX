@@ -19,6 +19,7 @@ const Navbar = () => {
     { name: "Home", routePath: "/", hashId: "" },
     { name: "Services", routePath: "/", hashId: "services" },
     { name: "About", routePath: "/", hashId: "about" },
+    { name: "Team", routePath: "/team", hashId: "team" },
     { name: "Contact", routePath: "/", hashId: "contact" },
   ];
 
