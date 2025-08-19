@@ -7,31 +7,31 @@ import { toast } from "sonner";
 import Collaborators from "@/components/cfp/Collaborators";
 
 const editors = [
-  { 
+  {
     name: "Hafiz Muhammad Attaullah",
     position: "Cyber Security Researcher",
     affiliation: "Faculty of Computing and Informatics, Multimedia University, Malaysia",
     initials: "HMA"
   },
-  { 
+  {
     name: "Dr. Inam Ullah Khan",
     position: "Post Doctoral Researcher",
     affiliation: "Faculty of Computing and Informatics, Multimedia University, Malaysia",
     initials: "IK"
   },
-  { 
+  {
     name: "Dr. Keshav Kaushik",
     position: "Professor",
     affiliation: "Center for Cyber Security and Cryptology, Sharda School of Computer Science & Engineering, Sharda University, Greater Noida, Uttar Pradesh, India",
     initials: "KK"
   },
-  { 
+  {
     name: "Dr. Al-Sakib Khan Pathan",
     position: "Professor",
     affiliation: "Department of Computer Science and Engineering, United International University, Bangladesh",
     initials: "AKP"
   },
-  { 
+  {
     name: "Dr. Ahthasham Sajid",
     position: "Associate Professor",
     affiliation: "Center for Cyber Security and Cryptology, Sharda School of Computer Science & Engineering, Sharda University, Greater Noida, Uttar Pradesh, India",
@@ -120,12 +120,12 @@ const bookParts = [
   }
 ];
 
-const bookTitle = "Communication in UAV Networks: Design, Challenges, and Security Implications";
+const bookTitle = "Unmanned Aerial Vehicle Networks: Communications and Cybersecurity Challenges";
 
 const CallForPublications = () => {
   useEffect(() => {
     const prevTitle = document.title;
-    const newTitle = "Call for Publications | UAV Networks (Scopus)";
+    const newTitle = "Call for Book Chapters | Unmanned Aerial Vehicle Networks: Communications and Cybersecurity Challenges";
     const newDesc =
       "Contribute Scopus-indexed chapters to Communication in UAV Networks: design, challenges, and security implications.";
     document.title = newTitle;
@@ -209,50 +209,54 @@ const CallForPublications = () => {
   const dateline = new Date().toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
 
   return (
-    <div className="relative pt-24 paper-texture">{/* offset for fixed local navbar */}
+    <div className="relative pt-24 paper-texture bg-gradient-to-br from-background via-muted/30 to-background">{/* offset for fixed local navbar */}
       {/* Minimal monochrome top bar (page-specific) */}
-      <div className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/80 backdrop-blur">
+      <div className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/90 backdrop-blur">
         <div className="mx-auto max-w-6xl h-16 px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          <span className="text-md font-bold tracking-wide">Call for Publications</span>
-            <nav className="hidden sm:flex items-center gap-6 text-sm text-muted-foreground">
-              <a href="#scope" className="hover:text-foreground transition-colors">Aim & Scope</a>
-              <a href="#topics" className="hover:text-foreground transition-colors">Topics</a>
-              <a href="#editors" className="hover:text-foreground transition-colors">Editors</a>
-              <a href="#biography" className="hover:text-foreground transition-colors">Biography</a>
-            </nav>
+          <span className="text-md font-bold tracking-wide">Call for Book Chapters</span>
+          <nav className="hidden sm:flex items-center gap-6 text-sm text-muted-foreground">
+            <a href="#scope" className="hover:text-foreground transition-colors">Aim & Scope</a>
+            <a href="#topics" className="hover:text-foreground transition-colors">Topics</a>
+            <a href="#editors" className="hover:text-foreground transition-colors">Editors</a>
+            <a href="#biography" className="hover:text-foreground transition-colors">Biography</a>
+            <a href="#rules" className="hover:text-foreground transition-colors">Rules</a>
+          </nav>
         </div>
       </div>
-      {/* Decorative background */}
+      {/* Enhanced newspaper-themed decorative background */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="paper-fold" />
         <div className="halftone-corner halftone-top-left" />
         <div className="halftone-corner halftone-bottom-right" />
-        <div className="absolute inset-0 opacity-[0.06] bg-[radial-gradient(1px_1px_at_1px_1px,hsl(var(--foreground)/0.8)_1px,transparent_1px)] [background-size:16px_16px]" />
+        {/* Multiple layered newspaper textures */}
+        <div className="absolute inset-0 opacity-[0.08] bg-[radial-gradient(1px_1px_at_1px_1px,hsl(var(--foreground)/0.8)_1px,transparent_1px)] [background-size:16px_16px]" />
+        <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(90deg,transparent_0%,hsl(var(--muted-foreground)/0.3)_50%,transparent_100%)] [background-size:200px_1px]" />
+        <div className="absolute inset-0 opacity-[0.02] bg-[repeating-linear-gradient(45deg,transparent,transparent_35px,hsl(var(--muted-foreground)/0.5)_35px,hsl(var(--muted-foreground)/0.5)_36px)]" />
+        {/* Aged paper effect */}
+        <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(circle_at_20%_30%,hsl(var(--muted-foreground)/0.6)_0%,transparent_50%),radial-gradient(circle_at_80%_70%,hsl(var(--muted-foreground)/0.4)_0%,transparent_50%)]" />
       </div>
 
       <header className="relative">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           <div className="animate-fade-in">
-            <div className="text-center ornament-divider pb-4">
-              <h2 className="masthead-title news-serif text-3xl sm:text-4xl tracking-[0.08em]">UAV Networks Bulletin</h2>
-              <p className="dateline text-xs mt-1">Vol. 1 • No. 1 — {dateline}</p>
-            </div>
-            <span className="inline-block rounded border border-border bg-cyber-surface px-3 py-1 text-[11px] tracking-wide text-muted-foreground">Scopus Indexed Edited Volume</span>
-            <h1 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight news-serif">
-              Call for Publications
-            </h1>
-            <p className="mt-3 text-base sm:text-lg text-muted-foreground max-w-2xl">
-              Inviting high-quality chapters for our upcoming book titled:
-            </p>
-            <p className="mt-2 text-lg sm:text-xl font-semibold text-foreground news-serif">{bookTitle}</p>
+            <div className="text-center mb-6">
+              <span className="inline-block rounded border border-border bg-muted/50 px-3 py-1 text-[11px] tracking-wide text-muted-foreground">Scopus Indexed Edited Volume</span>
+              <h1 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight news-serif ink-shadow">
+                Call for Book Chapters
+              </h1>
+              <p className="mt-3 text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
+                Inviting high-quality chapters for our upcoming book titled:
+              </p>
+              <p className="mt-2 text-lg sm:text-xl font-semibold text-foreground news-serif">{bookTitle}</p>
 
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Button variant="cyber" onClick={onPoster} aria-label="Download poster">
-                <FileDown className="mr-2" /> Download Poster
-              </Button>
-              <Button variant="cyber-outline" onClick={onSubmit} aria-label="Submit chapter">
-                <Send className="mr-2" /> Submit Chapter
-              </Button>
+              <div className="mt-6 flex flex-wrap gap-3 justify-center">
+                <Button variant="cyber" onClick={onPoster} aria-label="Download poster">
+                  <FileDown className="mr-2" /> Download Poster
+                </Button>
+                <Button variant="cyber-outline" onClick={onSubmit} aria-label="Submit chapter">
+                  <Send className="mr-2" /> Submit Chapter
+                </Button>
+              </div>
             </div>
           </div>
         </div>
@@ -261,7 +265,7 @@ const CallForPublications = () => {
       <main>
         {/* Aim & Scope */}
         <section id="scope" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8">
-          <Card className="border-border border-2 bg-cyber-surface/60 backdrop-blur supports-[backdrop-filter]:bg-cyber-surface/60 animate-fade-in">
+          <Card className="border-border bg-cyber-surface/60 backdrop-blur supports-[backdrop-filter]:bg-cyber-surface/60 animate-fade-in">
             <CardHeader>
               <CardTitle className="text-xl sm:text-2xl">Aim & Scope</CardTitle>
             </CardHeader>
@@ -273,7 +277,7 @@ const CallForPublications = () => {
                 showcase practical deployments across civil, industrial and defense contexts.
               </p>
               <div className="pull-quote mt-4">
-                “From resilient swarm routing to zero-trust security, we’re curating practical, peer-reviewed advances for real-world UAV systems.”
+                “From resilient swarm routing to zero-trust security, we're curating practical, peer-reviewed advances for real-world UAV systems.”
               </div>
             </CardContent>
           </Card>
@@ -283,7 +287,7 @@ const CallForPublications = () => {
         <section id="topics" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-4">
           <Card className="border-border bg-cyber-surface/60 backdrop-blur animate-fade-in">
             <CardHeader>
-              <CardTitle className="text-xl sm:text-2xl">Book Structure: 6 Parts, 15 Chapters</CardTitle>
+              <CardTitle className="text-xl sm:text-2xl">Tentative Book Structure (6 Parts, 25 Chapters)</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-6">
@@ -306,14 +310,14 @@ const CallForPublications = () => {
 
         {/* Editors */}
         <section id="editors" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8">
-          <Card className="border-border border-2 bg-cyber-surface/60 backdrop-blur animate-fade-in">
+          <Card className="border-border bg-cyber-surface/60 backdrop-blur animate-fade-in">
             <CardHeader>
               <CardTitle className="text-xl sm:text-2xl">Editors</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {editors.map((e) => (
-                  <div key={e.name} className="group rounded-lg border-4 border-border bg-background/50 p-6 transition-all duration-300 hover:shadow-blink">
+                  <div key={e.name} className="group rounded-lg border border-border bg-background/50 p-6 transition-all duration-300 hover:shadow-glow">
                     <div className="flex items-start gap-4">
                       <Avatar className="h-16 w-16">
                         <AvatarFallback className="text-lg font-semibold">{e.initials || initialsFor(e.name)}</AvatarFallback>
@@ -321,7 +325,7 @@ const CallForPublications = () => {
                       <div className="flex-1">
                         <h3 className="font-semibold text-lg text-foreground news-serif">{e.name}</h3>
                         <p className="text-sm text-muted-foreground font-medium mb-2">{e.position}</p>
-                        <div className="space-y-1 text-sm text-muted-foreground">
+                        <div className="space-y-1 text-xs text-muted-foreground">
                           <p><span className="font-medium">Affiliation:</span> {e.affiliation}</p>
                         </div>
                       </div>
@@ -355,8 +359,98 @@ const CallForPublications = () => {
           </Card>
         </section>
 
-        {/* Collaborators */}
-        <Collaborators />
+        {/* Rules and Regulations */}
+        <section id="rules" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8">
+          <Card className="border-border bg-cyber-surface/60 backdrop-blur animate-fade-in">
+            <CardHeader>
+              <CardTitle className="text-xl sm:text-2xl news-serif ink-shadow">Rules and Regulations</CardTitle>
+              <p className="text-sm text-muted-foreground mt-2">Guidelines for chapter submission and publication requirements</p>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-4">
+                    <h3 className="font-semibold text-foreground news-serif flex items-center gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-primary" />
+                      Submission Requirements
+                    </h3>
+                    <ul className="space-y-2 text-sm text-muted-foreground [list-style:disc] pl-5">
+                      <li>Submit <span className="font-semibold">original material only;</span> plagiarism or previously published work is not accepted.</li>
+                      <li>Provide <span className="font-semibold">written permissions</span> for any third-party content (tables, figures, images, text excerpts). Permission costs must be covered by the author.</li>
+                      <li>Each chapter must include an abstract (150-200 words).</li>
+                      <li>Manuscripts should be prepared in the format specified <span className="font-semibold">by the publisher</span> (details provided upon acceptance).</li>
+                      <li>All illustrations must be <span className="font-semibold">original electronic files</span>, with proper captions and <span className="font-semibold">alternative text (Alt Text)</span> for accessibility.</li>
+                      <li>Proof corrections must be returned promptly within the publisher's timeline. Delays will be treated as approval.</li>
+                      <li>Submissions that fail to meet deadlines or quality standards may be rejected.</li>
+                    </ul>
+                  </div>
+                  <div className="space-y-4">
+                    <h3 className="font-semibold text-foreground news-serif flex items-center gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-primary" />
+                      Author Qualifications
+                    </h3>
+                    <ul className="space-y-2 text-sm text-muted-foreground [list-style:disc] pl-5">
+                      <li>Authors must have the <span className="font-semibold">right and authority</span> to submit the work.</li>
+                      <li>Submissions must not be under <span className="font-semibold">consideration by any other publisher.</span></li>
+                      <li>Work should not directly <span className="font-semibold">compete with existing publications</span> under the same publisher.</li>
+                      <li>Authors are expected to have <span className="font-semibold">academic or professional expertise</span> in the subject area.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="newspaper-rule my-6" />
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-4">
+                    <h3 className="font-semibold text-foreground news-serif flex items-center gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-primary" />
+                      Review & Editing Process
+                    </h3>
+                    <ul className="space-y-2 text-sm text-muted-foreground [list-style:disc] pl-5">
+                      <li>All chapters will undergo <span className="font-semibold">editorial review</span> for originality, technical accuracy, and relevance.</li>
+                      <li>The publisher reserves the right to <span className="font-semibold">edit manuscripts</span> for style, grammar, punctuation, and formatting.</li>
+                      <li>Proofs will be sent to the lead contributor for corrections. Authors must submit changes within the given deadline.</li>
+                      <li>Excessive corrections (over 10% of the original typesetting cost) may be charged to the author/editor.</li>
+                    </ul>
+                  </div>
+                  <div className="space-y-4">
+                    <h3 className="font-semibold text-foreground news-serif flex items-center gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-primary" />
+                      Important Deadlines
+                    </h3>
+                    <ul className="space-y-2 text-sm text-muted-foreground [list-style:disc] pl-5">
+                      <li><strong>Abstract Submission:</strong> TBD</li>
+                      <li><strong>Full Chapter Deadline:</strong> TBD</li>
+                      <li><strong>Review Completion:</strong> TBD</li>
+                      <li><strong>Final Revision:</strong> TBD</li>
+                      <li><strong>Publication Target:</strong> TBD</li>
+                      <li><strong>No extensions</strong> beyond stated deadlines</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="newspaper-rule my-6" />
+
+                <div className="bg-muted/30 border border-border/50 rounded-lg">
+                  <h3 className="font-semibold text-foreground news-serif mb-3 flex items-center gap-2">
+                    <CheckCircle2 className="h-5 w-5 text-primary" />
+                    Publication Ethics & Copyright
+                  </h3>
+                  <ul className="space-y-2 text-sm text-muted-foreground [list-style:disc] pl-5">
+                    <li>Submissions must be <span className="font-semibold">free from plagiarism, libel, or defamatory material.</span></li>
+                    <li>Authors must avoid <span className="font-semibold">violations of copyright, privacy, or proprietary rights.</span></li>
+                    <li>Data, results, and references must be <span className="font-semibold">accurate and properly cited.</span></li>
+                    <li>If errors or ethical concerns are identified after submission, authors must <span className="font-semibold">cooperate with corrections or withdrawal.</span></li>
+                    <li>Copyright of each chapter remains with the <span className="font-semibold">author(s).</span></li>
+                    <li>However, authors grant the publisher an <span className="font-semibold">exclusive license</span> to reproduce, publish, distribute, and sell the work in any format worldwide.</li>
+                    <li>The publisher has the right to <span className="font-semibold">translate, adapt, and create derivative works.</span></li>
+                    <li>Authors may reuse their own content for teaching, academic publications, or presentations, with appropriate credit to the publisher.</li>
+                  </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
 
         {/* Bottom CTA */}
         <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-6">
