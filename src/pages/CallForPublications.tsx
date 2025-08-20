@@ -4,7 +4,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { CheckCircle2, FileDown, Send } from "lucide-react";
 import { toast } from "sonner";
-import Collaborators from "@/components/cfp/Collaborators";
+import CRCLogo from "@/assets/crc-press.jpg";
+import TFLogo from "@/assets/taylor-and-francis-logo.png";
+import ScopusLogo from "@/assets/index-by-scopus.png"
 
 const editors = [
   {
@@ -34,8 +36,8 @@ const editors = [
   {
     name: "Dr. Ahthasham Sajid",
     position: "Associate Professor",
-    affiliation: "Center for Cyber Security and Cryptology, Sharda School of Computer Science & Engineering, Sharda University, Greater Noida, Uttar Pradesh, India",
-    initials: "KK"
+    affiliation: "Fazaia Bilquis College of Education for Women's, Nur Khan Base, Air University, Pakistan And Multimedia University, Malaysia",
+    initials: "AS"
   },
 ];
 
@@ -54,7 +56,7 @@ const editorsInfo = [
   },
   {
     name: "Prof. Dr. Al-Sakib Khan Pathan",
-    biography: "Dr. Al-Sakib Khan Pathan is a Professor at United International University, Bangladesh, specializing in network security, cloud computing, and wireless sensor networks. He received his Ph.D. in Computer Engineering from Kyung Hee University, South Korea. Dr. Pathan has authored or edited 36 books and published extensively in leading journals. His contributions to cybersecurity earned him the IEEE Outstanding Leadership Award. He has been recognized four times among the top 2% of scientists worldwide by Stanford University and actively contributes as an editor and TPC member for international journals and conferences."
+    biography: "Dr. Al-Sakib Khan Pathan is a Professor at United International University, Bangladesh, specializing in network security, cloud computing, and wireless sensor networks. He received his Ph.D. in Computer Engineering from Kyung Hee University, South Korea. Dr. Pathan has authored or edited 36 books and published extensively in leading journals. His contributions to IEEE IRI'20 and IEEE IRI'21 conferences earned him twice the IEEE Outstanding Leadership Award. He has been recognized four times among the top 2% of scientists worldwide by Stanford University and actively contributes as an editor and TPC member for international journals and conferences."
   },
   {
     name: "Dr. Ahthasham Sajid",
@@ -200,7 +202,15 @@ const CallForPublications = () => {
   }, []);
 
   const onPoster = () => toast("Poster will be available soon.");
-  const onSubmit = () => toast("Submission portal coming soon.");
+  const onSubmit = () => {
+  const email = "uav.editorial@gmail.com";
+  const subject = "Chapter Abstract Submission";
+  const body = `Dear Editorial Team,%0D%0A%0D%0APlease find my abstract attached for consideration.%0D%0A%0D%0ARegards,%0D%0A[Your Name]`;
+
+  const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`;
+  
+  window.open(gmailUrl, "_blank");
+};
 
   const initialsFor = useMemo(() => (name: string) => {
     const parts = name.split(" ");
@@ -249,6 +259,16 @@ const CallForPublications = () => {
               </p>
               <p className="mt-2 text-lg sm:text-xl font-semibold text-foreground news-serif">{bookTitle}</p>
 
+              <p className="mt-6 text-base sm:text-lg text-muted-foreground">
+                This book will be <span className="font-bold text-primary">published by CRC Press (Taylor &amp; Francis Group)</span>.
+              </p>
+
+              <div className="mt-4 flex justify-center gap-6">
+                <img src={CRCLogo} alt="CRC Press" className="h-16 object-contain" />
+                <img src={TFLogo} alt="Taylor & Francis" className="h-16 object-contain" />
+                <img src={ScopusLogo} alt="Scopus" className="h-16 object-contain" />
+              </div>
+
               <div className="mt-6 flex flex-wrap gap-3 justify-center">
                 <Button variant="cyber" onClick={onPoster} aria-label="Download poster">
                   <FileDown className="mr-2" /> Download Poster
@@ -280,6 +300,10 @@ const CallForPublications = () => {
                 “From resilient swarm routing to zero-trust security, we're curating practical, peer-reviewed advances for real-world UAV systems.”
               </div>
             </CardContent>
+            <p className="mt-4 mb-6 font-semibold text-center text-primary">
+              <span className="font-bold text-red-500">Note: </span>All accepted chapters will be published in an edited volume by <span className="font-bold text-blue-500">CRC Press (Taylor &amp; Francis)</span>, 
+              ensuring global academic visibility and indexing.
+            </p>
           </Card>
         </section>
 
@@ -419,11 +443,11 @@ const CallForPublications = () => {
                       Important Deadlines
                     </h3>
                     <ul className="space-y-2 text-sm text-muted-foreground [list-style:disc] pl-5">
-                      <li><strong>Abstract Submission:</strong> TBD</li>
-                      <li><strong>Full Chapter Deadline:</strong> TBD</li>
-                      <li><strong>Review Completion:</strong> TBD</li>
-                      <li><strong>Final Revision:</strong> TBD</li>
-                      <li><strong>Publication Target:</strong> TBD</li>
+                      <li><strong>Abstract Submission:</strong> 15th October 2025</li>
+                      <li><strong>Full Chapter Deadline:</strong> 20th November 2025</li>
+                      <li><strong>Review Completion:</strong> 10th December 2025</li>
+                      <li><strong>Final Revision:</strong> 15th December 2025</li>
+                      <li><strong>Publication Target:</strong> 30th January 2026</li>
                       <li><strong>No extensions</strong> beyond stated deadlines</li>
                     </ul>
                   </div>
@@ -431,7 +455,7 @@ const CallForPublications = () => {
 
                 <div className="newspaper-rule my-6" />
 
-                <div className="bg-muted/30 border border-border/50 rounded-lg">
+                <div className="bg-muted/30 border border-border/50 rounded-lg p-6 md:p-2">
                   <h3 className="font-semibold text-foreground news-serif mb-3 flex items-center gap-2">
                     <CheckCircle2 className="h-5 w-5 text-primary" />
                     Publication Ethics & Copyright
@@ -445,6 +469,7 @@ const CallForPublications = () => {
                     <li>However, authors grant the publisher an <span className="font-semibold">exclusive license</span> to reproduce, publish, distribute, and sell the work in any format worldwide.</li>
                     <li>The publisher has the right to <span className="font-semibold">translate, adapt, and create derivative works.</span></li>
                     <li>Authors may reuse their own content for teaching, academic publications, or presentations, with appropriate credit to the publisher.</li>
+                    <li>The book will be officially published by <span className="font-semibold"> CRC Press (Taylor &amp; Francis Group)</span>, a globally recognized academic publisher.</li>
                   </ul>
                 </div>
               </div>
@@ -467,6 +492,9 @@ const CallForPublications = () => {
                 <Send className="mr-2" /> Submit Chapter
               </Button>
             </div>
+            <p className="text-xs text-muted-foreground">
+              Published by <span className="font-semibold">CRC Press (Taylor &amp; Francis Group)</span>
+            </p>
           </div>
         </section>
       </main>
