@@ -11,14 +11,14 @@ import ScopusLogo from "@/assets/index-by-scopus.png"
 const editors = [
   {
     name: "Hafiz Muhammad Attaullah",
-    position: "Cyber Security Researcher",
-    affiliation: "Faculty of Computing and Informatics, Multimedia University, Malaysia",
+    position: "Cyber Security Consultant & Researcher",
+    affiliation: "NanoTechx Inc. And Faculty of Computing and Informatics, Multimedia University, Malaysia",
     initials: "HMA"
   },
   {
     name: "Dr. Inam Ullah Khan",
     position: "Post Doctoral Researcher",
-    affiliation: "Faculty of Computing and Informatics, Multimedia University, Malaysia",
+    affiliation: "Fazaia Bilquis College of Education for Women's, Nur Khan Base, Air University, Pakistan And Multimedia University, Malaysia",
     initials: "IK"
   },
   {
@@ -201,7 +201,6 @@ const CallForPublications = () => {
     };
   }, []);
 
-  const onPoster = () => toast("Poster will be available soon.");
   const onSubmit = () => {
   const email = "uav.editorial@gmail.com";
   const subject = "Chapter Abstract Submission";
@@ -216,7 +215,15 @@ const CallForPublications = () => {
     const parts = name.split(" ");
     return parts.map((p) => p[0]).join("").slice(0, 2).toUpperCase();
   }, []);
-  const dateline = new Date().toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
+
+  const handleDownloadPoster = () => {
+    const link = document.createElement('a');
+    link.href = '/Editor-Poster.pdf';
+    link.download = 'Editor-Poster';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <div className="relative pt-24 paper-texture bg-gradient-to-br from-background via-muted/30 to-background">{/* offset for fixed local navbar */}
@@ -270,7 +277,7 @@ const CallForPublications = () => {
               </div>
 
               <div className="mt-6 flex flex-wrap gap-3 justify-center">
-                <Button variant="cyber" onClick={onPoster} aria-label="Download poster">
+                <Button variant="cyber" onClick={handleDownloadPoster} aria-label="Download poster">
                   <FileDown className="mr-2" /> Download Poster
                 </Button>
                 <Button variant="cyber-outline" onClick={onSubmit} aria-label="Submit chapter">
@@ -341,7 +348,7 @@ const CallForPublications = () => {
             <CardContent>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {editors.map((e) => (
-                  <div key={e.name} className="group rounded-lg border border-border bg-background/50 p-6 transition-all duration-300 hover:shadow-glow">
+                  <div key={e.name} className="group rounded-lg border border-border bg-background/50 p-6 transition-all duration-300 hover:shadow-blink">
                     <div className="flex items-start gap-4">
                       <Avatar className="h-16 w-16">
                         <AvatarFallback className="text-lg font-semibold">{e.initials || initialsFor(e.name)}</AvatarFallback>
@@ -444,11 +451,8 @@ const CallForPublications = () => {
                     </h3>
                     <ul className="space-y-2 text-sm text-muted-foreground [list-style:disc] pl-5">
                       <li><strong>Abstract Submission:</strong> 15th October 2025</li>
-                      <li><strong>Full Chapter Deadline:</strong> 20th November 2025</li>
-                      <li><strong>Review Completion:</strong> 10th December 2025</li>
-                      <li><strong>Final Revision:</strong> 15th December 2025</li>
-                      <li><strong>Publication Target:</strong> 30th January 2026</li>
-                      <li><strong>No extensions</strong> beyond stated deadlines</li>
+                      <li><strong>Full Chapter Submission Deadline:</strong> 30th November 2025</li>
+                      <li><strong>Acceptance Notification:</strong> 28th December 2025</li>
                     </ul>
                   </div>
                 </div>
@@ -485,7 +489,7 @@ const CallForPublications = () => {
               <p className="text-sm text-muted-foreground">Submit your Scopus-ready chapter to be part of this edited volume.</p>
             </div>
             <div className="flex flex-col md:flex-row gap-3">
-              <Button variant="cyber-outline" onClick={onPoster} aria-label="Download poster bottom">
+              <Button variant="cyber-outline" onClick={handleDownloadPoster} aria-label="Download poster bottom">
                 <FileDown className="mr-2" /> Download Poster
               </Button>
               <Button variant="cyber" onClick={onSubmit} aria-label="Submit chapter bottom">
