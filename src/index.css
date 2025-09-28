@@ -49,7 +49,6 @@
     
     /* Effects */
     --glow-green: 0 0 20px hsl(var(--cyber-green) / 0.4);
-    --glow-black: 0 0 20px hsl(var(--cyber-bg) / 0.4);
     --shadow-cyber: 0 10px 30px -10px hsl(var(--cyber-green) / 0.3);
     --pulse-green: 0 0 30px hsl(var(--cyber-green) / 0.5);
 
@@ -263,6 +262,62 @@ body.bw-theme::before {
     radial-gradient(circle at 20% 80%, hsl(0 0% 0% / 0.05) 0%, transparent 55%),
     radial-gradient(circle at 80% 20%, hsl(0 0% 20% / 0.06) 0%, transparent 55%),
     radial-gradient(circle at 40% 40%, hsl(0 0% 0% / 0.03) 0%, transparent 55%);
+  animation: float 20s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Cisco blue theme specifically for Learn-a-thon page */
+body.cisco-theme {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 20%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 20%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 20%;
+
+  --primary: 207 100% 39%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 207 100% 45%;
+  --secondary-foreground: 0 0% 100%;
+
+  --muted: 210 40% 96%;
+  --muted-foreground: 215 16% 47%;
+
+  --accent: 207 100% 39%;
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 214 32% 91%;
+  --input: 214 32% 91%;
+  --ring: 207 100% 39%;
+
+  /* Override cyber tokens to cisco blue theme */
+  --cyber-green: 207 100% 39%;
+  --cyber-green-dark: 207 100% 45%;
+  --cyber-bg: 0 0% 100%;
+  --cyber-surface: 0 0% 100%;
+  --cyber-surface-hover: 210 40% 98%;
+
+  /* Cisco blue gradients */
+  --gradient-primary: linear-gradient(135deg, hsl(207 100% 39%), hsl(207 100% 45%));
+  --gradient-dark: linear-gradient(135deg, hsl(210 40% 98%), hsl(0 0% 100%));
+  --gradient-hero: linear-gradient(135deg, hsl(207 100% 39%) 0%, hsl(207 100% 32%) 100%);
+}
+
+body.cisco-theme::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 80%, hsl(207 100% 39% / 0.05) 0%, transparent 55%),
+    radial-gradient(circle at 80% 20%, hsl(207 100% 45% / 0.06) 0%, transparent 55%),
+    radial-gradient(circle at 40% 40%, hsl(207 100% 39% / 0.03) 0%, transparent 55%);
   animation: float 20s ease-in-out infinite;
   pointer-events: none;
   z-index: -1;

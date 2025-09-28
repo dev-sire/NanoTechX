@@ -15,6 +15,7 @@ import VAPT from "@/pages/services/VAPT";
 import MalwareDetection from "@/pages/services/MalwareDetection";
 import UndergraduateGuidance from "@/pages/services/UndergraduateGuidance";
 import Team from "@/pages/Team";
+import LearnAThon from "./pages/LearnAThon";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/instructors" element={<Instructors />} />
           <Route path="/team" element={<Team />} />
           <Route path="/call-for-publications" element={<CallForPublications />} />
+          <Route path="/learn-a-thon" element={<LearnAThon />} />
           <Route path="/services/vapt" element={<VAPT />} />
           <Route path="/services/grc" element={<GRC />} />
           <Route path="/services/risk-assessments" element={<RiskAssessments />} />

@@ -26,6 +26,7 @@ const Navbar = () => {
   const initiativeItems = [
     { name: "Tech Tayari 1.0", path: "/tech-tayari" },
     { name: "Call for Publications", path: "/call-for-publications" },
+    { name: "Learn-a-thon", path: "/learn-a-thon" },
   ];
 
   const handleNavClick = (item: typeof navItems[0]) => {
