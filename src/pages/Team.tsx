@@ -39,106 +39,140 @@ const Team = () => {
   const teamMembers = [
     {
       id: 1,
-      name: "Dr. Sarah Chen",
-      role: "Chief Security Officer",
+      name: "Sadia",
+      role: "Head of HR",
       category: "leadership",
-      specialty: "Threat Intelligence & Research",
-      location: "San Francisco, CA",
-      experience: "15+ years",
+      specialty: "Business Development & HR",
+      location: "Karachi, Pakistan",
+      experience: "5+ years",
       image: "/api/placeholder/200/200",
-      bio: "Dr. Chen leads our cybersecurity strategy with over 15 years of experience in threat intelligence and security research. She holds a Ph.D. in Computer Science from Stanford and has published over 50 papers on cybersecurity.",
-      achievements: ["CISSP Certified", "DEF CON Speaker", "Forbes 30 Under 30"],
+      bio: "Sadia leads our HR strategy with over 5 years of experience in talent acquisition and employee engagement.",
+      achievements: ["Virtual University Pakistan"],
       social: {
-        linkedin: "#",
+        linkedin: "https://www.linkedin.com/in/sadia-atta-6ab194314/",
         twitter: "#",
-        email: "sarah.chen@nanotechx.com"
+        email: "sadia.atta@nanotechx.org"
       }
     },
     {
       id: 2,
-      name: "Marcus Rodriguez",
-      role: "Senior Penetration Tester",
-      category: "security",
+      name: "Umm e Farwa",
+      role: "Head, R&D Department",
+      category: "Research",
       specialty: "Web Application Security",
-      location: "Austin, TX",
-      experience: "12+ years",
+      location: "Karachi, Pakistan",
+      experience: "5+ years",
       image: "/api/placeholder/200/200",
-      bio: "Marcus is our lead penetration tester specializing in web application security and advanced exploitation techniques. He's certified in OSCP, OSCE, and holds multiple industry certifications.",
+      bio: "Umm e Farwa is our lead penetration tester specializing in web application security and advanced exploitation techniques. She's certified in OSCP, OSCE, and holds multiple industry certifications.",
       achievements: ["OSCP Certified", "Bug Bounty Hunter", "Black Hat Trainer"],
       social: {
         linkedin: "#",
         github: "#",
-        email: "marcus.rodriguez@nanotechx.com"
+        email: "umm.e.farwa@nanotechx.org"
       }
     },
     {
       id: 3,
-      name: "Priya Patel",
-      role: "GRC Specialist",
-      category: "compliance",
-      specialty: "Governance, Risk & Compliance",
-      location: "New York, NY",
-      experience: "10+ years",
+      name: "Muhammad Gul Iqbal",
+      role: "Senior Consultant, Cybersecurity",
+      category: "Cybersecurity",
+      specialty: "Consulting & Compliance",
+      location: "Karachi, Pakistan",
+      experience: "6+ years",
       image: "/api/placeholder/200/200",
-      bio: "Priya specializes in governance, risk management, and compliance frameworks. She helps organizations achieve and maintain certifications including ISO 27001, SOC 2, and GDPR compliance.",
+      bio: "Gul Iqbal specializes in governance, risk management, and compliance frameworks. He helps organizations achieve and maintain certifications including ISO 27001, SOC 2, and GDPR compliance.",
       achievements: ["ISO 27001 Lead Auditor", "CISA Certified", "Risk Management Expert"],
       social: {
-        linkedin: "#",
+        linkedin: "https://www.linkedin.com/in/guliqbal/",
         twitter: "#",
-        email: "priya.patel@nanotechx.com"
+        email: "muhammad.gul.iqbal@nanotechx.org"
       }
     },
     {
       id: 4,
-      name: "Alex Kim",
-      role: "Malware Analyst",
-      category: "security",
-      specialty: "Reverse Engineering & Malware Analysis",
-      location: "Seattle, WA",
-      experience: "8+ years",
+      name: "Muhammad Shoaib",
+      role: "Penetration Tester Engineer",
+      category: "Red Team",
+      specialty: "Vulnerability Research & Exploitation",
+      location: "Karachi, Pakistan",
+      experience: "5+ years",
       image: "/api/placeholder/200/200",
-      bio: "Alex is our lead malware analyst with expertise in reverse engineering, threat hunting, and advanced persistent threats. He develops custom detection tools and signatures for our clients.",
+      bio: "Muhammad Shoaib is our lead penetration tester with expertise in vulnerability research, exploitation, and red teaming. He develops and executes advanced attack simulations to help clients strengthen their security posture.",
       achievements: ["GCIH Certified", "Malware Research Awards", "Open Source Contributor"],
       social: {
         linkedin: "#",
         github: "#",
-        email: "alex.kim@nanotechx.com"
+        email: "muhammad.shoaib@nanotechx.org"
       }
     },
     {
       id: 5,
-      name: "Dr. Michael Thompson",
-      role: "Research Director",
-      category: "research",
-      specialty: "AI Security & Cryptography",
-      location: "Boston, MA",
-      experience: "20+ years",
+      name: "Tayyab Ahmed",
+      role: "Penetration Tester Engineer",
+      category: "Red Team",
+      specialty: "Vulnerability Research & Exploitation",
+      location: "Karachi, Pakistan",
+      experience: "5+ years",
       image: "/api/placeholder/200/200",
-      bio: "Dr. Thompson leads our research initiatives in AI security and cryptographic solutions. He has extensive experience in academia and industry, focusing on next-generation security technologies.",
-      achievements: ["MIT PhD", "IEEE Fellow", "50+ Publications"],
+      bio: "Tayyab Ahmed is a skilled penetration tester with a focus on vulnerability research and exploitation techniques. He has a strong background in offensive security and has worked on numerous red team engagements.",
+      achievements: ["OSCP Certified", "Bug Bounty Hunter", "Red Team Expert"],
       social: {
         linkedin: "#",
         github: "#",
-        email: "michael.thompson@nanotechx.com"
+        email: "tayyab.ahmed@nanotechx.org"
       }
     },
     {
       id: 6,
-      name: "Elena Volkov",
-      role: "Cloud Security Architect",
-      category: "security",
-      specialty: "Cloud Infrastructure Security",
-      location: "Denver, CO",
-      experience: "11+ years",
+      name: "Ahmed Khan",
+      role: "Penetration Tester Engineer",
+      category: "Red Team",
+      specialty: "Vulnerability Research & Exploitation",
+      location: "Karachi, Pakistan",
+      experience: "5+ years",
       image: "/api/placeholder/200/200",
-      bio: "Elena designs and implements secure cloud architectures for enterprise clients. She specializes in AWS, Azure, and GCP security, with expertise in container security and DevSecOps.",
-      achievements: ["AWS Security Certified", "CCSP Certified", "Cloud Security Expert"],
+      bio: "Ahmed Khan is a seasoned penetration tester with extensive experience in cloud infrastructure security. He specializes in securing AWS, Azure, and GCP environments, with a focus on vulnerability assessment and compliance.",
+      achievements: ["OSCP Certified", "Bug Bounty Hunter", "Red Team Expert"],
       social: {
         linkedin: "#",
         github: "#",
-        email: "elena.volkov@nanotechx.com"
+        email: "ahmed.khan@nanotechx.org"
       }
-    }
+    },
+    {
+      id: 7,
+      name: "Ruba Khawar",
+      role: "Content Writer",
+      category: "Research",
+      specialty: "Technical Writing & Documentation",
+      location: "Karachi, Pakistan",
+      experience: "5+ years",
+      image: "/api/placeholder/200/200",
+      bio: "Ruba Khawar is a skilled content writer with a passion for cybersecurity. She specializes in creating clear and concise documentation, whitepapers, and research articles that help organizations understand complex security concepts.",
+      achievements: ["Certified Technical Writer", "Cybersecurity Awareness Advocate"],
+      social: {
+        linkedin: "#",
+        github: "#",
+        email: "ruba.khawar@nanotechx.org"
+      }
+    },
+    {
+      id: 8,
+      name: "Anosh Khan",
+      role: "IT Officer",
+      category: "Cybersecurity",
+      specialty: "Network & System Administration",
+      location: "Karachi, Pakistan",
+      experience: "5+ years",
+      image: "/api/placeholder/200/200",
+      bio: "Anosh Khan is a dedicated IT Officer with a strong background in network and system administration. He is skilled in managing and securing IT infrastructures, ensuring optimal performance and security.",
+      achievements: ["CompTIA Network+ Certified", "Microsoft Certified: Azure Administrator", "Cisco Certified Network Associate"],
+      social: {
+        linkedin: "#",
+        github: "#",
+        email: "anosh.khan@nanotechx.org"
+      }
+    },
   ];
 
   const categories = [

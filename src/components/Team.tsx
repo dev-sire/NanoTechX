@@ -10,55 +10,74 @@ const Team = () => {
   const [hoveredMember, setHoveredMember] = useState<number | null>(null);
 
   const teamMembers = [
-    {
+{
       id: 1,
-      name: "Dr. Sarah Chen",
-      role: "Chief Security Officer",
-      specialty: "Threat Intelligence",
-      image: "/api/placeholder/150/150",
-      bio: "15+ years in cybersecurity research and threat hunting.",
+      name: "Sadia",
+      role: "Head of HR",
+      category: "leadership",
+      specialty: "Business Development & HR",
+      location: "Karachi, Pakistan",
+      experience: "5+ years",
+      image: "/api/placeholder/200/200",
+      bio: "Sadia leads our HR strategy with over 5 years of experience in talent acquisition and employee engagement.",
+      achievements: ["Virtual University Pakistan"],
       social: {
-        linkedin: "#",
+        linkedin: "https://www.linkedin.com/in/sadia-atta-6ab194314/",
         twitter: "#",
-        github: "#"
+        email: "sadia.atta@nanotechx.org"
       }
     },
     {
       id: 2,
-      name: "Marcus Rodriguez",
-      role: "Senior Penetration Tester",
+      name: "Umm e Farwa",
+      role: "Head, R&D Department",
+      category: "Research",
       specialty: "Web Application Security",
-      image: "/api/placeholder/150/150",
-      bio: "Expert in OWASP Top 10 and advanced exploitation techniques.",
+      location: "Karachi, Pakistan",
+      experience: "5+ years",
+      image: "/api/placeholder/200/200",
+      bio: "Umm e Farwa is our lead penetration tester specializing in web application security and advanced exploitation techniques. She's certified in OSCP, OSCE, and holds multiple industry certifications.",
+      achievements: ["OSCP Certified", "Bug Bounty Hunter", "Black Hat Trainer"],
       social: {
         linkedin: "#",
-        github: "#"
+        github: "#",
+        email: "umm.e.farwa@nanotechx.org"
       }
     },
     {
       id: 3,
-      name: "Priya Patel",
-      role: "GRC Specialist",
-      specialty: "Compliance & Risk",
-      image: "/api/placeholder/150/150",
-      bio: "Certified in ISO 27001, SOC 2, and enterprise risk management.",
+      name: "Muhammad Gul Iqbal",
+      role: "Senior Consultant, Cybersecurity",
+      category: "Cybersecurity",
+      specialty: "Consulting & Compliance",
+      location: "Karachi, Pakistan",
+      experience: "6+ years",
+      image: "/api/placeholder/200/200",
+      bio: "Gul Iqbal specializes in governance, risk management, and compliance frameworks. He helps organizations achieve and maintain certifications including ISO 27001, SOC 2, and GDPR compliance.",
+      achievements: ["ISO 27001 Lead Auditor", "CISA Certified", "Risk Management Expert"],
       social: {
-        linkedin: "#",
-        twitter: "#"
+        linkedin: "https://www.linkedin.com/in/guliqbal/",
+        twitter: "#",
+        email: "muhammad.gul.iqbal@nanotechx.org"
       }
     },
     {
       id: 4,
-      name: "Alex Kim",
-      role: "Malware Analyst",
-      specialty: "Reverse Engineering",
-      image: "/api/placeholder/150/150",
-      bio: "Specialized in advanced persistent threats and malware analysis.",
+      name: "Muhammad Shoaib",
+      role: "Penetration Tester Engineer",
+      category: "Red Team",
+      specialty: "Vulnerability Research & Exploitation",
+      location: "Karachi, Pakistan",
+      experience: "5+ years",
+      image: "/api/placeholder/200/200",
+      bio: "Muhammad Shoaib is our lead penetration tester with expertise in vulnerability research, exploitation, and red teaming. He develops and executes advanced attack simulations to help clients strengthen their security posture.",
+      achievements: ["GCIH Certified", "Malware Research Awards", "Open Source Contributor"],
       social: {
         linkedin: "#",
-        github: "#"
+        github: "#",
+        email: "muhammad.shoaib@nanotechx.org"
       }
-    }
+    },
   ];
 
   return (
