@@ -6,12 +6,12 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useToast } from "@/hooks/use-toast";
 import heroBanner from "@/assets/emea-hero-banner.png";
+import nanotechxlogo from "@/assets/nano_techx_logo.png";
 
 const LearnAThon = () => {
   const { toast } = useToast();
 
   useEffect(() => {
-    // SEO optimization
     document.title = "EMEA Cisco Networking Academy Cup 2025 - Learn-a-thon";
     
     const metaDescription = document.querySelector('meta[name="description"]');
@@ -132,24 +132,32 @@ const LearnAThon = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Custom Cisco-themed Navbar for this page */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0D96CC] shadow-lg">
+      {/* Glassmorphism Navbar */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#0D96CC]/80 via-[#0a7a9e]/80 to-[#0D96CC]/80 backdrop-blur-xl border-b border-white/20 shadow-2xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-2">
-              <span className="text-white text-xl font-bold">NanoTechX x Cisco Networking Academy</span>
+          <div className="flex justify-between items-center h-20">
+            <div className="flex items-center space-x-3">
+              <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
+                {/* <span className="text-white font-bold text-xl">C</span> */}
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Cisco_logo.svg/200px-Cisco_logo.svg.png" alt="cisco logo" />
+              </div>
+              <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-xl">X</span>
+                <img src={nanotechxlogo} alt="nanotechx logo" />
+              </div>
+              {/* <span className="text-white text-xl font-bold tracking-wide drop-shadow-lg"></span> */}
             </div>
-            <div className="hidden md:flex space-x-8">
-              <a href="/" className="text-white hover:text-gray-200 transition-colors">Home</a>
-              <a href="/instructors" className="text-white hover:text-gray-200 transition-colors">Instructors</a>
-              <a href="/team" className="text-white hover:text-gray-200 transition-colors">Team</a>
+            <div className="hidden md:flex space-x-1">
+              <a href="/" className="px-6 py-2 text-white hover:bg-white/20 rounded-lg transition-all backdrop-blur-sm border border-transparent hover:border-white/30">Home</a>
+              <a href="/instructors" className="px-6 py-2 text-white hover:bg-white/20 rounded-lg transition-all backdrop-blur-sm border border-transparent hover:border-white/30">Instructors</a>
+              <a href="/team" className="px-6 py-2 text-white hover:bg-white/20 rounded-lg transition-all backdrop-blur-sm border border-transparent hover:border-white/30">Team</a>
             </div>
           </div>
         </div>
       </nav>
       
       {/* Hero Banner */}
-      <section className="pt-16">
+      <section className="pt-20">
         <img src={heroBanner} alt="EMEA Cisco Networking Academy Cup" className="w-full" />
       </section>
 
@@ -200,30 +208,60 @@ const LearnAThon = () => {
         </div>
       </section>
 
-      {/* Benefits Grid */}
-      <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold mb-12 text-center text-[#0D96CC]">Program Overview</h2>
+      {/* Benefits Grid with Network Topology Background */}
+      <section className="py-16 relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+        {/* Network Topology SVG Background */}
+        <div className="absolute inset-0 opacity-20">
+          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="network" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
+                <circle cx="20" cy="20" r="3" fill="#0D96CC" className="animate-pulse" />
+                <circle cx="180" cy="40" r="3" fill="#F58025" className="animate-pulse" style={{ animationDelay: '0.5s' }} />
+                <circle cx="100" cy="100" r="3" fill="#0D96CC" className="animate-pulse" style={{ animationDelay: '1s' }} />
+                <circle cx="60" cy="160" r="3" fill="#F58025" className="animate-pulse" style={{ animationDelay: '1.5s' }} />
+                <circle cx="160" cy="180" r="3" fill="#0D96CC" className="animate-pulse" style={{ animationDelay: '2s' }} />
+                <line x1="20" y1="20" x2="180" y2="40" stroke="#0D96CC" strokeWidth="0.5" opacity="0.5" />
+                <line x1="180" y1="40" x2="100" y2="100" stroke="#0D96CC" strokeWidth="0.5" opacity="0.5" />
+                <line x1="100" y1="100" x2="60" y2="160" stroke="#F58025" strokeWidth="0.5" opacity="0.5" />
+                <line x1="60" y1="160" x2="160" y2="180" stroke="#F58025" strokeWidth="0.5" opacity="0.5" />
+                <line x1="20" y1="20" x2="100" y2="100" stroke="#0D96CC" strokeWidth="0.5" opacity="0.3" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#network)" />
+          </svg>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <h2 className="text-5xl font-black mb-4 text-center bg-gradient-to-r from-[#0D96CC] via-white to-[#F58025] bg-clip-text text-transparent drop-shadow-2xl" style={{ fontFamily: 'monospace' }}>
+            PROGRAM OVERVIEW
+          </h2>
+          <div className="h-1 w-32 bg-gradient-to-r from-[#0D96CC] to-[#F58025] mx-auto mb-12 rounded-full"></div>
+          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {benefitCards.map((benefit, index) => (
-              <Card key={index} className="text-center hover:shadow-2xl transition-all hover:-translate-y-1 border-t-4 border-[#0D96CC] bg-white">
+              <Card 
+                key={index} 
+                className="text-center group hover:shadow-[0_0_30px_rgba(13,150,204,0.5)] transition-all duration-500 hover:-translate-y-2 border border-[#0D96CC]/30 bg-slate-800/50 backdrop-blur-sm hover:bg-slate-800/80 hover:border-[#F58025] animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
                 <CardHeader>
-                  <div className="text-5xl mb-4">{benefit.icon}</div>
-                  <CardTitle className="text-xl mb-4 text-gray-800">{benefit.title}</CardTitle>
+                  <div className="text-6xl mb-4 transform group-hover:scale-110 transition-transform duration-300">{benefit.icon}</div>
+                  <CardTitle className="text-xl mb-4 text-white font-bold tracking-wide">{benefit.title}</CardTitle>
+                  <div className="h-0.5 w-16 bg-gradient-to-r from-[#0D96CC] to-[#F58025] mx-auto rounded-full"></div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-gray-600 mb-4">{benefit.description}</p>
+                  <p className="text-base text-gray-300 mb-4 leading-relaxed">{benefit.description}</p>
                   {benefit.courses && (
-                    <div className="space-y-2 text-left">
+                    <div className="space-y-2 text-left bg-slate-900/50 p-4 rounded-lg border border-[#0D96CC]/20">
                       {benefit.courses.map((course, idx) => (
                         <a
                           key={idx}
                           href={course.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="block text-sm text-[#0D96CC] hover:text-[#F58025] hover:underline transition-colors"
+                          className="block text-xs text-[#0D96CC] hover:text-[#F58025] hover:pl-2 transition-all duration-200 border-l-2 border-transparent hover:border-[#F58025] pl-2"
                         >
-                          {course.name}
+                          → {course.name}
                         </a>
                       ))}
                     </div>
@@ -248,36 +286,79 @@ const LearnAThon = () => {
               <Award className="w-8 h-8 mr-4 text-[#F58025] flex-shrink-0 mt-1" />
               <span className="text-gray-800">Students that participate in the learn-a-thon will receive a Cisco learn-a-thon experience digital badge.</span>
             </div>
-            <p className="text-sm text-gray-600 mt-6 p-4 bg-gray-50 rounded-lg">
+            <p className="text-base text-gray-600 mt-6 p-4 bg-gray-50 rounded-lg">
               A Cisco digital badge is an emblem distinguishing an achievement that can be shared and validated digitally on LinkedIn, X, Facebook, Xing, via Email, shared link; embed code into web page or blog.
             </p>
-            <p className="text-sm text-gray-600 p-4 bg-gray-50 rounded-lg">
+            <p className="text-base text-gray-600 p-4 bg-gray-50 rounded-lg">
               After the learn-a-thon, encourage students to continue to complete the participating courses. The CCST Networking exam certification is an excellent steppingstone for learners to validate their skills and then continue to associate-level certifications like CCNA or CyberOps Associate.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="py-16 bg-gradient-to-br from-[#0D96CC] to-[#0a7a9e]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold mb-12 text-center text-white">Event Timeline</h2>
+      {/* Creative Timeline with Hexagons */}
+      <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
+        {/* Animated background grid */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'linear-gradient(#0D96CC 1px, transparent 1px), linear-gradient(90deg, #0D96CC 1px, transparent 1px)',
+            backgroundSize: '50px 50px'
+          }}></div>
+        </div>
+        
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <h2 className="text-5xl font-black mb-4 text-center bg-gradient-to-r from-[#F58025] via-white to-[#0D96CC] bg-clip-text text-transparent" style={{ fontFamily: 'monospace' }}>
+            EVENT TIMELINE
+          </h2>
+          <div className="h-1 w-32 bg-gradient-to-r from-[#F58025] to-[#0D96CC] mx-auto mb-16 rounded-full"></div>
+          
           <div className="relative">
-            {/* Vertical line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-white/30"></div>
+            {/* Vertical glowing line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-[#0D96CC] via-[#F58025] to-[#0D96CC] shadow-[0_0_20px_rgba(13,150,204,0.8)]"></div>
             
-            <div className="space-y-12">
+            <div className="space-y-16">
               {timelineEvents.map((event, index) => (
-                <div key={index} className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
-                  <div className={`w-5/12 ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
-                    <div className="bg-white p-6 rounded-lg shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
-                      <p className="font-bold text-lg text-[#0D96CC] mb-2">{event.date}</p>
-                      <p className="text-gray-700">{event.event}</p>
+                <div 
+                  key={index} 
+                  className={`flex items-center animate-fade-in ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
+                  style={{ animationDelay: `${index * 0.2}s` }}
+                >
+                  <div className={`w-5/12 ${index % 2 === 0 ? 'text-right pr-12' : 'text-left pl-12'}`}>
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-r from-[#0D96CC] to-[#F58025] rounded-lg blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
+                      <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 p-8 rounded-lg border border-[#0D96CC]/50 hover:border-[#F58025] transition-all duration-500 hover:shadow-[0_0_30px_rgba(245,128,37,0.3)] transform hover:-translate-y-2">
+                        <p className="font-black text-2xl mb-3 text-transparent bg-gradient-to-r from-[#0D96CC] to-[#F58025] bg-clip-text" style={{ fontFamily: 'monospace' }}>
+                          {event.date}
+                        </p>
+                        <div className="h-0.5 w-20 bg-gradient-to-r from-[#0D96CC] to-[#F58025] mb-3 rounded-full" style={{ marginLeft: index % 2 === 0 ? 'auto' : '0' }}></div>
+                        <p className="text-white text-lg font-medium">{event.event}</p>
+                      </div>
                     </div>
                   </div>
-                  <div className="w-2/12 flex justify-center">
-                    <div className="w-6 h-6 bg-[#F58025] rounded-full border-4 border-white shadow-lg z-10"></div>
+                  
+                  <div className="w-2/12 flex justify-center relative z-20">
+                    {/* Hexagon shape */}
+                    <div className="relative group">
+                      <div className="absolute inset-0 animate-pulse">
+                        <svg width="48" height="48" viewBox="0 0 48 48" className="drop-shadow-[0_0_15px_rgba(245,128,37,0.8)]">
+                          <polygon points="24,2 44,14 44,34 24,46 4,34 4,14" fill="url(#hexGradient)" stroke="#fff" strokeWidth="2"/>
+                          <defs>
+                            <linearGradient id="hexGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                              <stop offset="0%" style={{ stopColor: '#0D96CC', stopOpacity: 1 }} />
+                              <stop offset="100%" style={{ stopColor: '#F58025', stopOpacity: 1 }} />
+                            </linearGradient>
+                          </defs>
+                        </svg>
+                      </div>
+                      <svg width="48" height="48" viewBox="0 0 48 48" className="relative">
+                        <polygon points="24,2 44,14 44,34 24,46 4,34 4,14" fill="url(#hexGradient)" stroke="#fff" strokeWidth="2"/>
+                        <text x="24" y="28" textAnchor="middle" fill="white" fontSize="14" fontWeight="bold" style={{ fontFamily: 'monospace' }}>
+                          {index + 1}
+                        </text>
+                      </svg>
+                    </div>
                   </div>
+                  
                   <div className="w-5/12"></div>
                 </div>
               ))}
@@ -301,7 +382,7 @@ const LearnAThon = () => {
                 The Top 3 academies per country will be invited to participate in the EMEA Cisco Networking Academy Cup – Capture the Flag.
               </p>
             </div>
-            <p className="text-sm italic text-gray-600 p-4 bg-gray-50 rounded-lg">
+            <p className="text-base italic text-gray-600 p-4 bg-gray-50 rounded-lg">
               In the event of a tie, the academy that achieved the highest points at the earliest time will be awarded the prize. Only one prize per academy will be awarded.
             </p>
           </div>
@@ -318,7 +399,7 @@ const LearnAThon = () => {
                 <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#0D96CC] to-[#0a7a9e] text-white rounded-full flex items-center justify-center text-xl font-bold shadow-lg">
                   {step.step}
                 </div>
-                <p className="text-sm text-gray-700 pt-2">{step.description}</p>
+                <p className="text-base text-gray-700 pt-2">{step.description}</p>
               </div>
             ))}
           </div>
@@ -334,7 +415,7 @@ const LearnAThon = () => {
               This learn-a-thon is open to Cisco Networking Academies who can coordinate the event virtually or on campus. To participate, read the terms and conditions and then register your course here.
             </p>
             <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6 mb-8 rounded">
-              <p className="text-sm font-semibold text-gray-800">
+              <p className="text-base font-semibold text-gray-800">
                 If you are creating multiple courses for this competition, each individual course must be registered separately
               </p>
             </div>
@@ -363,43 +444,83 @@ const LearnAThon = () => {
         </div>
       </section>
 
-      {/* Phase 2: CTF */}
-      <section className="py-16 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold mb-8 text-[#0D96CC]">Phase 2: Capture the Flag</h2>
-          <p className="text-base mb-6 text-gray-800">
-            The three highest-scoring academies from each participating country will qualify for Phase 2: EMEA Cisco Networking Academy Cup – Capture the Flag. Each qualifying academy will select a team of four students to represent them and compete in the event, which begins on April 16, 2026.
-          </p>
-          <p className="text-base mb-12 text-gray-800">
-            The challenge will feature exclusive content developed in partnership with Real Madrid and Cisco, highlighting the digital transformation of the Santiago Bernabeu stadium. The Capture the Flag tournament, using the Real Madrid Learning Collection, will consist of two phases and focus on three key areas: digital signage, WiFi 6, and network infrastructure.
-          </p>
+      {/* Phase 2: CTF - Enhanced with Hackathon Feel */}
+      <section className="py-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
+        {/* Tech grid background */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'linear-gradient(#F58025 1px, transparent 1px), linear-gradient(90deg, #F58025 1px, transparent 1px)',
+            backgroundSize: '40px 40px'
+          }}></div>
+        </div>
+        
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <h2 className="text-5xl font-black mb-6 text-center bg-gradient-to-r from-[#F58025] via-white to-[#0D96CC] bg-clip-text text-transparent" style={{ fontFamily: 'monospace' }}>
+            PHASE 2: CAPTURE THE FLAG
+          </h2>
+          <div className="h-1 w-32 bg-gradient-to-r from-[#F58025] to-[#0D96CC] mx-auto mb-12 rounded-full"></div>
           
-          <h3 className="text-3xl font-bold mb-8 text-[#0D96CC]">CTF Timeline</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <div className="space-y-8 mb-16">
+            <div className="bg-slate-800/50 backdrop-blur-sm border border-[#0D96CC]/30 p-8 rounded-xl">
+              <p className="text-base text-gray-200 leading-relaxed">
+                The three highest-scoring academies from each participating country will qualify for Phase 2: EMEA Cisco Networking Academy Cup – Capture the Flag. Each qualifying academy will select a team of four students to represent them and compete in the event, which begins on April 16, 2026.
+              </p>
+            </div>
+            <div className="bg-slate-800/50 backdrop-blur-sm border border-[#F58025]/30 p-8 rounded-xl">
+              <p className="text-base text-gray-200 leading-relaxed">
+                The challenge will feature exclusive content developed in partnership with Real Madrid and Cisco, highlighting the digital transformation of the Santiago Bernabeu stadium. The Capture the Flag tournament, using the Real Madrid Learning Collection, will consist of two phases and focus on three key areas: digital signage, WiFi 6, and network infrastructure.
+              </p>
+            </div>
+          </div>
+          
+          <h3 className="text-4xl font-black mb-10 text-center text-transparent bg-gradient-to-r from-[#0D96CC] to-[#F58025] bg-clip-text" style={{ fontFamily: 'monospace' }}>CTF TIMELINE</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
             {ctfTimeline.map((event, index) => (
-              <div key={index} className="flex items-center space-x-4 p-6 bg-gradient-to-r from-blue-50 to-transparent rounded-lg shadow hover:shadow-lg transition-all">
-                <Calendar className="w-10 h-10 text-[#0D96CC] flex-shrink-0" />
-                <div>
-                  <p className="font-bold text-gray-800">{event.date}</p>
-                  <p className="text-gray-600 text-sm">{event.event}</p>
+              <div 
+                key={index} 
+                className="group relative overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-[#0D96CC] to-[#F58025] rounded-xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
+                <div className="relative flex items-start space-x-4 p-6 bg-slate-800 border border-[#0D96CC]/30 rounded-xl hover:border-[#F58025] transition-all duration-500 hover:shadow-[0_0_30px_rgba(245,128,37,0.3)]">
+                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#0D96CC] to-[#F58025] rounded-lg flex items-center justify-center shadow-lg">
+                    <Calendar className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="font-black text-[#0D96CC] mb-1" style={{ fontFamily: 'monospace' }}>{event.date}</p>
+                    <p className="text-gray-300 text-base">{event.event}</p>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
 
-          <h3 className="text-3xl font-bold mb-8 text-[#0D96CC]">Grand Prize</h3>
-          <div className="bg-gradient-to-r from-[#0D96CC] to-[#0a7a9e] text-white p-10 rounded-xl mb-6 shadow-2xl">
-            <p className="text-2xl font-bold mb-4">🏆 EMEA Cisco Networking Academy Cup Winner</p>
-            <p className="text-lg mb-6">
-              5 VIP tickets to La Liga match + 5 tickets to an exclusive Technical tour of the Bernabeu
-            </p>
-            <p className="text-sm opacity-90">
-              *Winners are responsible for all costs associated with travel, meals and lodging accommodations, etc.
+          <h3 className="text-4xl font-black mb-10 text-center text-transparent bg-gradient-to-r from-[#F58025] to-[#0D96CC] bg-clip-text" style={{ fontFamily: 'monospace' }}>GRAND PRIZE</h3>
+          <div className="relative group mb-8">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#F58025] to-[#0D96CC] rounded-2xl blur-2xl opacity-50 group-hover:opacity-75 transition-opacity"></div>
+            <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 border-2 border-[#F58025] text-white p-12 rounded-2xl shadow-2xl">
+              <div className="text-center space-y-6">
+                <p className="text-6xl">🏆</p>
+                <p className="text-3xl font-black bg-gradient-to-r from-[#F58025] to-[#0D96CC] bg-clip-text text-transparent" style={{ fontFamily: 'monospace' }}>
+                  EMEA CUP WINNER
+                </p>
+                <div className="h-1 w-24 bg-gradient-to-r from-[#F58025] to-[#0D96CC] mx-auto rounded-full"></div>
+                <p className="text-xl font-semibold text-gray-200">
+                  5 VIP tickets to La Liga match + 5 tickets to an exclusive Technical tour of the Bernabeu
+                </p>
+                <div className="pt-4 border-t border-white/20">
+                  <p className="text-base text-gray-400 italic">
+                    *Winners are responsible for all costs associated with travel, meals and lodging accommodations, etc.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="bg-slate-800/50 backdrop-blur-sm border border-[#0D96CC]/30 p-6 rounded-xl text-center">
+            <p className="text-base text-gray-200 font-semibold">
+              Prizes will be awarded to the <span className="text-[#F58025] font-black">Top 38 teams</span>
             </p>
           </div>
-          <p className="text-base text-gray-800 p-4 bg-gray-50 rounded-lg">
-            Prizes will be awarded to the Top 38 teams.
-          </p>
         </div>
       </section>
 
@@ -417,33 +538,55 @@ const LearnAThon = () => {
         </div>
       </section>
 
-      {/* Custom Footer for Learn-a-thon page */}
-      <footer className="bg-[#1a1a1a] text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4 text-[#0D96CC]">About</h3>
-              <p className="text-sm text-gray-300">
-                EMEA Cisco Networking Academy Cup 2025 - Empowering the next generation of tech professionals.
-              </p>
+      {/* Custom Cisco-themed Footer with Glassmorphism */}
+      <footer className="relative bg-gradient-to-br from-slate-900 via-[#0D96CC] to-slate-900 text-white py-16 overflow-hidden">
+        {/* Network pattern overlay */}
+        <div className="absolute inset-0 opacity-10">
+          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="footer-network" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                <circle cx="10" cy="10" r="2" fill="#fff" />
+                <circle cx="90" cy="20" r="2" fill="#F58025" />
+                <circle cx="50" cy="50" r="2" fill="#fff" />
+                <line x1="10" y1="10" x2="90" y2="20" stroke="#fff" strokeWidth="0.5" />
+                <line x1="90" y1="20" x2="50" y2="50" stroke="#F58025" strokeWidth="0.5" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#footer-network)" />
+          </svg>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="backdrop-blur-sm bg-white/5 border border-white/10 rounded-2xl p-12 shadow-2xl">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+              <div className="space-y-4">
+                <h3 className="text-2xl font-black text-transparent bg-gradient-to-r from-[#0D96CC] to-[#F58025] bg-clip-text" style={{ fontFamily: 'monospace' }}>ABOUT</h3>
+                <div className="h-0.5 w-16 bg-gradient-to-r from-[#0D96CC] to-[#F58025] rounded-full"></div>
+                <p className="text-base text-gray-300 leading-relaxed">
+                  EMEA Cisco Networking Academy Cup 2025 - Empowering the next generation of tech professionals through innovation and collaboration.
+                </p>
+              </div>
+              <div className="space-y-4">
+                <h3 className="text-2xl font-black text-transparent bg-gradient-to-r from-[#0D96CC] to-[#F58025] bg-clip-text" style={{ fontFamily: 'monospace' }}>QUICK LINKS</h3>
+                <div className="h-0.5 w-16 bg-gradient-to-r from-[#0D96CC] to-[#F58025] rounded-full"></div>
+                <ul className="space-y-3 text-base">
+                  <li><a href="#registration" className="text-gray-300 hover:text-[#F58025] transition-all hover:pl-2 block">→ Register</a></li>
+                  <li><a href="/" className="text-gray-300 hover:text-[#F58025] transition-all hover:pl-2 block">→ Home</a></li>
+                  <li><a href="/instructors" className="text-gray-300 hover:text-[#F58025] transition-all hover:pl-2 block">→ Instructors</a></li>
+                  <li><a href="/team" className="text-gray-300 hover:text-[#F58025] transition-all hover:pl-2 block">→ Team</a></li>
+                </ul>
+              </div>
+              <div className="space-y-4">
+                <h3 className="text-2xl font-black text-transparent bg-gradient-to-r from-[#0D96CC] to-[#F58025] bg-clip-text" style={{ fontFamily: 'monospace' }}>CONTACT</h3>
+                <div className="h-0.5 w-16 bg-gradient-to-r from-[#0D96CC] to-[#F58025] rounded-full"></div>
+                <p className="text-base text-gray-300 leading-relaxed">
+                  For questions about the Learn-a-thon, please contact your regional Cisco Networking Academy representative.
+                </p>
+              </div>
             </div>
-            <div>
-              <h3 className="text-xl font-bold mb-4 text-[#0D96CC]">Quick Links</h3>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#registration" className="text-gray-300 hover:text-[#F58025] transition-colors">Register</a></li>
-                <li><a href="/" className="text-gray-300 hover:text-[#F58025] transition-colors">Home</a></li>
-                <li><a href="/instructors" className="text-gray-300 hover:text-[#F58025] transition-colors">Instructors</a></li>
-              </ul>
+            <div className="border-t border-white/20 pt-8 mt-8 text-center">
+              <p className="text-base text-gray-300 font-mono">© 2025 Cisco Networking Academy. All rights reserved.</p>
             </div>
-            <div>
-              <h3 className="text-xl font-bold mb-4 text-[#0D96CC]">Contact</h3>
-              <p className="text-sm text-gray-300">
-                For questions about the Learn-a-thon, please contact your regional Cisco Networking Academy representative.
-              </p>
-            </div>
-          </div>
-          <div className="border-t border-gray-700 pt-8 text-center">
-            <p className="text-sm text-gray-400">© 2025 Cisco Networking Academy. All rights reserved.</p>
           </div>
         </div>
       </footer>
