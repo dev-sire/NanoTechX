@@ -1,9 +1,7 @@
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Calendar, Award, ExternalLink, Clock, Download } from "lucide-react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import { Calendar, Award, ExternalLink, Signal, BookA, Sparkle, TrophyIcon, Target } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import heroBanner from "@/assets/emea-hero-banner.png";
 import nanotechxlogo from "@/assets/nano_techx_logo.png";
@@ -65,17 +63,17 @@ const LearnAThon = () => {
       description: "Participate in the learn-a-thon from 12 January until 8 March 2026."
     },
     {
-      icon: "✨",
+      icon: <Sparkle className="w-12 h-12 text-[#ffd700]" />,
       title: "Benefits",
       description: "These courses collectively equip learners with essential knowledge and skills to understand and address cybersecurity threats, leverage artificial intelligence responsibly, support digital transformation through IoT, maintain digital safety, and build strong networking capabilities."
     },
     {
-      icon: "🎯",
+      icon: <Target className="w-12 h-12 text-red-500" />,
       title: "In-Demand Skills",
       description: "Foundational networking knowledge, security expertise, and emerging technology competencies are essential skills to keep pace with rapid technological changes, including the integration of AI in networking and cybersecurity."
     },
     {
-      icon: "📚",
+      icon: <BookA className="w-12 h-12 text-[#0D96CC]" />,
       title: "Courses",
       description: "Multiple activities and quizzes engage students and reinforce learning.",
       courses: [
@@ -91,12 +89,12 @@ const LearnAThon = () => {
     {
       icon: "🆓",
       title: "Free to join",
-      description: "The cost to join the learn-a-thon is free."
+      description: "The cost to join this comprehensive learn-a-thon is completely free, making essential cybersecurity, AI, and networking skills accessible to everyone. This investment in your future is free of financial barriers, encouraging broad participation from all who wish to enhance their digital competencies and career prospects."
     },
     {
-      icon: "📊",
+      icon: <Signal className="w-12 h-12 text-[#0D96CC]" />,
       title: "Level",
-      description: "Beginner."
+      description: "This entire learn-a-thon is perfectly suited for those with little to no prior experience in networking, cybersecurity, or AI. The course materials are designed to establish a solid foundation, gradually introducing key concepts and technical skills in an easy-to-digest format."
     }
   ];
 
@@ -133,24 +131,23 @@ const LearnAThon = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Glassmorphism Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#0D96CC]/80 via-[#0a7a9e]/80 to-[#0D96CC]/80 backdrop-blur-xl border-b border-white/20 shadow-2xl">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#0D96CC]/60 via-[#0a7a9e]/60 to-[#0D96CC]/60 backdrop-blur-2xl border-b border-white/20 shadow-2xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
+              <div className="w-12 h-12 flex items-center justify-center">
                 {/* <span className="text-white font-bold text-xl">C</span> */}
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Cisco_logo.svg/200px-Cisco_logo.svg.png" alt="cisco logo" />
               </div>
-              <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">X</span>
+              <div className="w-12 h-12 flex items-center justify-center">
+                {/* <span className="text-white font-bold text-xl mx-2">X</span> */}
                 <img src={nanotechxlogo} alt="nanotechx logo" />
               </div>
-              {/* <span className="text-white text-xl font-bold tracking-wide drop-shadow-lg"></span> */}
             </div>
             <div className="hidden md:flex space-x-1">
-              <a href="/" className="px-6 py-2 text-white hover:bg-white/20 rounded-lg transition-all backdrop-blur-sm border border-transparent hover:border-white/30">Home</a>
-              <a href="/instructors" className="px-6 py-2 text-white hover:bg-white/20 rounded-lg transition-all backdrop-blur-sm border border-transparent hover:border-white/30">Instructors</a>
-              <a href="/team" className="px-6 py-2 text-white hover:bg-white/20 rounded-lg transition-all backdrop-blur-sm border border-transparent hover:border-white/30">Team</a>
+              <a href="/" className="px-4 py-2 text-white hover:bg-white/20 rounded-lg transition-all backdrop-blur-sm border border-transparent hover:border-white/30">Home</a>
+              <a href="/instructors" className="px-4 py-2 text-white hover:bg-white/20 rounded-lg transition-all backdrop-blur-sm border border-transparent hover:border-white/30">Instructors</a>
+              <a href="/team" className="px-4 py-2 text-white hover:bg-white/20 rounded-lg transition-all backdrop-blur-sm border border-transparent hover:border-white/30">Team</a>
             </div>
           </div>
         </div>
@@ -184,10 +181,10 @@ const LearnAThon = () => {
               To help you promote the event at your academy, additional information and marketing assets are available in the sections below on this website.
             </p>
             <p className="text-base font-semibold text-gray-800">
-              Register today to get started!
+              Register Starts Soon!
             </p>
             <div className="mt-8">
-              <Button onClick={handleRegistration} size="lg" className="bg-[#F58025] hover:bg-[#e07520] text-white shadow-lg hover:shadow-xl transition-all">
+              <Button onClick={handleRegistration} disabled size="lg" className="bg-[#F58025] hover:bg-[#e07520] text-white shadow-lg hover:shadow-xl transition-all">
                 REGISTER NOW
               </Button>
             </div>
@@ -245,7 +242,7 @@ const LearnAThon = () => {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardHeader>
-                  <div className="text-6xl mb-4 transform group-hover:scale-110 transition-transform duration-300">{benefit.icon}</div>
+                  <div className="text-6xl mb-4 transform group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">{benefit.icon}</div>
                   <CardTitle className="text-xl mb-4 text-white font-bold tracking-wide">{benefit.title}</CardTitle>
                   <div className="h-0.5 w-16 bg-gradient-to-r from-[#0D96CC] to-[#F58025] mx-auto rounded-full"></div>
                 </CardHeader>
@@ -259,7 +256,7 @@ const LearnAThon = () => {
                           href={course.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="block text-xs text-[#0D96CC] hover:text-[#F58025] hover:pl-2 transition-all duration-200 border-l-2 border-transparent hover:border-[#F58025] pl-2"
+                          className="block text-sm hover:text-[#F58025] hover:pl-2 transition-all duration-200 border-l-2 border-transparent hover:border-[#F58025] pl-2"
                         >
                           → {course.name}
                         </a>
@@ -300,48 +297,80 @@ const LearnAThon = () => {
       <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
         {/* Animated background grid */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'linear-gradient(#0D96CC 1px, transparent 1px), linear-gradient(90deg, #0D96CC 1px, transparent 1px)',
-            backgroundSize: '50px 50px'
-          }}></div>
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage:
+                'linear-gradient(#0D96CC 1px, transparent 1px), linear-gradient(90deg, #0D96CC 1px, transparent 1px)',
+              backgroundSize: '50px 50px',
+            }}
+          ></div>
         </div>
-        
+
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <h2 className="text-5xl font-black mb-4 text-center bg-gradient-to-r from-[#F58025] via-white to-[#0D96CC] bg-clip-text text-transparent" style={{ fontFamily: 'monospace' }}>
+          <h2
+            className="text-4xl sm:text-5xl font-black mb-4 text-center bg-gradient-to-r from-[#F58025] via-white to-[#0D96CC] bg-clip-text text-transparent"
+            style={{ fontFamily: 'monospace' }}
+          >
             EVENT TIMELINE
           </h2>
           <div className="h-1 w-32 bg-gradient-to-r from-[#F58025] to-[#0D96CC] mx-auto mb-16 rounded-full"></div>
-          
+
           <div className="relative">
             {/* Vertical glowing line */}
             <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-[#0D96CC] via-[#F58025] to-[#0D96CC] shadow-[0_0_20px_rgba(13,150,204,0.8)]"></div>
-            
+
             <div className="space-y-16">
               {timelineEvents.map((event, index) => (
-                <div 
-                  key={index} 
-                  className={`flex items-center animate-fade-in ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
+                <div
+                  key={index}
+                  className={`flex items-center justify-between animate-fade-in flex-col sm:flex-row ${
+                    index % 2 !== 0 ? 'sm:flex-row-reverse' : ''
+                  }`}
                   style={{ animationDelay: `${index * 0.2}s` }}
                 >
-                  <div className={`w-5/12 ${index % 2 === 0 ? 'text-right pr-12' : 'text-left pl-12'}`}>
+                  {/* Event Card */}
+                  <div
+                    className={`w-full sm:w-5/12 mb-8 sm:mb-0 ${
+                      index % 2 === 0 ? 'sm:text-right sm:pr-12' : 'sm:text-left sm:pl-12'
+                    }`}
+                  >
                     <div className="group relative">
                       <div className="absolute inset-0 bg-gradient-to-r from-[#0D96CC] to-[#F58025] rounded-lg blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
-                      <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 p-8 rounded-lg border border-[#0D96CC]/50 hover:border-[#F58025] transition-all duration-500 hover:shadow-[0_0_30px_rgba(245,128,37,0.3)] transform hover:-translate-y-2">
-                        <p className="font-black text-2xl mb-3 text-transparent bg-gradient-to-r from-[#0D96CC] to-[#F58025] bg-clip-text" style={{ fontFamily: 'monospace' }}>
+                      <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 p-6 sm:p-8 rounded-lg border border-[#0D96CC]/50 hover:border-[#F58025] transition-all duration-500 hover:shadow-[0_0_30px_rgba(245,128,37,0.3)] transform hover:-translate-y-2">
+                        <p
+                          className="font-black text-xl sm:text-2xl mb-2 sm:mb-3 text-transparent bg-gradient-to-r from-[#0D96CC] to-[#F58025] bg-clip-text"
+                          style={{ fontFamily: 'monospace' }}
+                        >
                           {event.date}
                         </p>
-                        <div className="h-0.5 w-20 bg-gradient-to-r from-[#0D96CC] to-[#F58025] mb-3 rounded-full" style={{ marginLeft: index % 2 === 0 ? 'auto' : '0' }}></div>
-                        <p className="text-white text-lg font-medium">{event.event}</p>
+                        <div
+                          className="h-0.5 w-16 sm:w-20 bg-gradient-to-r from-[#0D96CC] to-[#F58025] mb-3 rounded-full"
+                          style={{ marginLeft: index % 2 === 0 ? 'auto' : '0' }}
+                        ></div>
+                        <p className="text-white text-base sm:text-lg font-medium">
+                          {event.event}
+                        </p>
                       </div>
                     </div>
                   </div>
-                  
-                  <div className="w-2/12 flex justify-center relative z-20">
-                    {/* Hexagon shape */}
+
+                  {/* Hexagon Marker */}
+                  <div className="w-full sm:w-2/12 flex justify-center relative z-20 mb-6 sm:mb-0">
                     <div className="relative group">
                       <div className="absolute inset-0 animate-pulse">
-                        <svg width="48" height="48" viewBox="0 0 48 48" className="drop-shadow-[0_0_15px_rgba(245,128,37,0.8)]">
-                          <polygon points="24,2 44,14 44,34 24,46 4,34 4,14" fill="url(#hexGradient)" stroke="#fff" strokeWidth="2"/>
+                        <svg
+                          width="48"
+                          height="48"
+                          viewBox="0 0 48 48"
+                          className="drop-shadow-[0_0_15px_rgba(245,128,37,0.8)]"
+                        >
+                          <polygon
+                            points="24,2 44,14 44,34 24,46 4,34 4,14"
+                            fill="url(#hexGradient)"
+                            stroke="#fff"
+                            strokeWidth="2"
+                          />
                           <defs>
                             <linearGradient id="hexGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                               <stop offset="0%" style={{ stopColor: '#0D96CC', stopOpacity: 1 }} />
@@ -351,21 +380,36 @@ const LearnAThon = () => {
                         </svg>
                       </div>
                       <svg width="48" height="48" viewBox="0 0 48 48" className="relative">
-                        <polygon points="24,2 44,14 44,34 24,46 4,34 4,14" fill="url(#hexGradient)" stroke="#fff" strokeWidth="2"/>
-                        <text x="24" y="28" textAnchor="middle" fill="white" fontSize="14" fontWeight="bold" style={{ fontFamily: 'monospace' }}>
+                        <polygon
+                          points="24,2 44,14 44,34 24,46 4,34 4,14"
+                          fill="url(#hexGradient)"
+                          stroke="#fff"
+                          strokeWidth="2"
+                        />
+                        <text
+                          x="24"
+                          y="28"
+                          textAnchor="middle"
+                          fill="white"
+                          fontSize="14"
+                          fontWeight="bold"
+                          style={{ fontFamily: 'monospace' }}
+                        >
                           {index + 1}
                         </text>
                       </svg>
                     </div>
                   </div>
-                  
-                  <div className="w-5/12"></div>
+
+                  {/* Spacer for alignment */}
+                  <div className="hidden sm:block sm:w-5/12"></div>
                 </div>
               ))}
             </div>
           </div>
         </div>
       </section>
+
 
       {/* Awards */}
       <section className="py-16 bg-white">
@@ -415,31 +459,18 @@ const LearnAThon = () => {
               This learn-a-thon is open to Cisco Networking Academies who can coordinate the event virtually or on campus. To participate, read the terms and conditions and then register your course here.
             </p>
             <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6 mb-8 rounded">
-              <p className="text-base font-semibold text-gray-800">
+              {/* <p className="text-base font-semibold text-gray-800">
                 If you are creating multiple courses for this competition, each individual course must be registered separately
+              </p> */}
+              <p className="text-base font-semibold text-gray-800">
+                Registrations will open on 9 October 2025 and close on 11 January 2026.
               </p>
             </div>
             <div className="text-center">
-              <Button onClick={handleRegistration} size="lg" className="bg-[#F58025] hover:bg-[#e07520] text-white shadow-lg hover:shadow-xl transition-all px-12 py-6 text-lg">
+              <Button onClick={handleRegistration} disabled size="lg" className="bg-[#F58025] hover:bg-[#e07520] text-white shadow-lg hover:shadow-xl transition-all px-12 py-6 text-lg">
                 REGISTER NOW
               </Button>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Promotion */}
-      <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold mb-6 text-center text-[#0D96CC]">Marketing Materials</h2>
-          <p className="text-base mb-12 text-center text-gray-700">Download these files to promote the learn-a-thon in your academy.</p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {['Infographic', 'Email', 'Social', 'TriFold'].map((item) => (
-              <div key={item} className="text-center p-8 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 cursor-pointer border-t-4 border-[#F58025]">
-                <Download className="w-16 h-16 mx-auto mb-4 text-[#0D96CC]" />
-                <p className="font-semibold text-gray-800">{item}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -499,7 +530,7 @@ const LearnAThon = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-[#F58025] to-[#0D96CC] rounded-2xl blur-2xl opacity-50 group-hover:opacity-75 transition-opacity"></div>
             <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 border-2 border-[#F58025] text-white p-12 rounded-2xl shadow-2xl">
               <div className="text-center space-y-6">
-                <p className="text-6xl">🏆</p>
+                <p className="flex items-center justify-center"><TrophyIcon className="w-14 h-14 text-[#F58025]" /></p>
                 <p className="text-3xl font-black bg-gradient-to-r from-[#F58025] to-[#0D96CC] bg-clip-text text-transparent" style={{ fontFamily: 'monospace' }}>
                   EMEA CUP WINNER
                 </p>
@@ -557,17 +588,17 @@ const LearnAThon = () => {
         </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="backdrop-blur-sm bg-white/5 border border-white/10 rounded-2xl p-12 shadow-2xl">
+          <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-12 shadow-2xl">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
               <div className="space-y-4">
-                <h3 className="text-2xl font-black text-transparent bg-gradient-to-r from-[#0D96CC] to-[#F58025] bg-clip-text" style={{ fontFamily: 'monospace' }}>ABOUT</h3>
+                <h3 className="text-2xl font-black text-white bg-gradient-to-r from-[#0D96CC] to-[#F58025] bg-clip-text" style={{ fontFamily: 'monospace' }}>ABOUT</h3>
                 <div className="h-0.5 w-16 bg-gradient-to-r from-[#0D96CC] to-[#F58025] rounded-full"></div>
                 <p className="text-base text-gray-300 leading-relaxed">
                   EMEA Cisco Networking Academy Cup 2025 - Empowering the next generation of tech professionals through innovation and collaboration.
                 </p>
               </div>
               <div className="space-y-4">
-                <h3 className="text-2xl font-black text-transparent bg-gradient-to-r from-[#0D96CC] to-[#F58025] bg-clip-text" style={{ fontFamily: 'monospace' }}>QUICK LINKS</h3>
+                <h3 className="text-2xl font-black text-white bg-gradient-to-r from-[#0D96CC] to-[#F58025] bg-clip-text" style={{ fontFamily: 'monospace' }}>QUICK LINKS</h3>
                 <div className="h-0.5 w-16 bg-gradient-to-r from-[#0D96CC] to-[#F58025] rounded-full"></div>
                 <ul className="space-y-3 text-base">
                   <li><a href="#registration" className="text-gray-300 hover:text-[#F58025] transition-all hover:pl-2 block">→ Register</a></li>
@@ -577,7 +608,7 @@ const LearnAThon = () => {
                 </ul>
               </div>
               <div className="space-y-4">
-                <h3 className="text-2xl font-black text-transparent bg-gradient-to-r from-[#0D96CC] to-[#F58025] bg-clip-text" style={{ fontFamily: 'monospace' }}>CONTACT</h3>
+                <h3 className="text-2xl font-black text-white bg-gradient-to-r from-[#0D96CC] to-[#F58025] bg-clip-text" style={{ fontFamily: 'monospace' }}>CONTACT</h3>
                 <div className="h-0.5 w-16 bg-gradient-to-r from-[#0D96CC] to-[#F58025] rounded-full"></div>
                 <p className="text-base text-gray-300 leading-relaxed">
                   For questions about the Learn-a-thon, please contact your regional Cisco Networking Academy representative.
