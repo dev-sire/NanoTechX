@@ -5,9 +5,9 @@ import { Calendar, Award, ExternalLink, Signal, BookA, Sparkle, TrophyIcon, Targ
 import { useToast } from "@/hooks/use-toast";
 import heroBanner from "@/assets/emea-hero-banner.png";
 import nanotechxlogo from "@/assets/nano_techx_logo.png";
+import { Link, redirect, useNavigate } from "react-router-dom";
 
 const LearnAThon = () => {
-  const { toast } = useToast();
 
   useEffect(() => {
     document.title = "EMEA Cisco Networking Academy Cup 2025 - Learn-a-thon";
@@ -48,13 +48,6 @@ const LearnAThon = () => {
       document.head.removeChild(script);
     };
   }, []);
-
-  const handleRegistration = () => {
-    toast({
-      title: "Registration",
-      description: "Please read the terms and conditions before registering your course.",
-    });
-  };
 
   const benefitCards = [
     {
@@ -128,26 +121,29 @@ const LearnAThon = () => {
     { date: "17 May 2026", event: "Capture the Flag Participant Badges and Certificates Issued" }
   ];
 
+  const handleRegistration = () => {
+    window.open("https://docs.google.com/forms/d/e/1FAIpQLSc7bu7vke9WMDzeoTJ6--5hw0BzkyXPByMoBnaOo-kMphcHtg/viewform?usp=dialog");
+  }
+
   return (
     <div className="min-h-screen bg-white">
       {/* Glassmorphism Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#0D96CC]/60 via-[#0a7a9e]/60 to-[#0D96CC]/60 backdrop-blur-2xl border-b border-white/20 shadow-2xl">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#ffffff] backdrop-blur-2xl border-b border-white/20 shadow-2xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 flex items-center justify-center">
-                {/* <span className="text-white font-bold text-xl">C</span> */}
+            <div className="flex items-center justify-center space-x-3">
+              <div className="w-14 h-14 flex items-center justify-center">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Cisco_logo.svg/200px-Cisco_logo.svg.png" alt="cisco logo" />
               </div>
-              <div className="w-12 h-12 flex items-center justify-center">
-                {/* <span className="text-white font-bold text-xl mx-2">X</span> */}
+              <span className="text-black font-bold text-xl">X</span>
+              <div className="w-14 h-14 flex items-center justify-center">
                 <img src={nanotechxlogo} alt="nanotechx logo" />
               </div>
             </div>
             <div className="hidden md:flex space-x-1">
-              <a href="/" className="px-4 py-2 text-white hover:bg-white/20 rounded-lg transition-all backdrop-blur-sm border border-transparent hover:border-white/30">Home</a>
-              <a href="/instructors" className="px-4 py-2 text-white hover:bg-white/20 rounded-lg transition-all backdrop-blur-sm border border-transparent hover:border-white/30">Instructors</a>
-              <a href="/team" className="px-4 py-2 text-white hover:bg-white/20 rounded-lg transition-all backdrop-blur-sm border border-transparent hover:border-white/30">Team</a>
+              <a href="/" className="px-4 py-2 text-black hover:bg-white/20 rounded-lg transition-all backdrop-blur-sm border border-transparent hover:border-white/30">Home</a>
+              <a href="/instructors" className="px-4 py-2 text-black hover:bg-white/20 rounded-lg transition-all backdrop-blur-sm border border-transparent hover:border-white/30">Instructors</a>
+              <a href="/team" className="px-4 py-2 text-black hover:bg-white/20 rounded-lg transition-all backdrop-blur-sm border border-transparent hover:border-white/30">Team</a>
             </div>
           </div>
         </div>
@@ -181,10 +177,10 @@ const LearnAThon = () => {
               To help you promote the event at your academy, additional information and marketing assets are available in the sections below on this website.
             </p>
             <p className="text-base font-semibold text-gray-800">
-              Register Starts Soon!
+              Registrations are now open! Click the button below to register your course and join the learn-a-thon.
             </p>
             <div className="mt-8">
-              <Button onClick={handleRegistration} disabled size="lg" className="bg-[#F58025] hover:bg-[#e07520] text-white shadow-lg hover:shadow-xl transition-all">
+              <Button onClick={handleRegistration} size="lg" className="bg-[#F58025] hover:bg-[#e07520] text-white shadow-lg hover:shadow-xl transition-all">
                 REGISTER NOW
               </Button>
             </div>
@@ -463,11 +459,11 @@ const LearnAThon = () => {
                 If you are creating multiple courses for this competition, each individual course must be registered separately
               </p> */}
               <p className="text-base font-semibold text-gray-800">
-                Registrations will open on 9 October 2025 and close on 11 January 2026.
+                Registrations are now open. Hurry up and secure your spot!
               </p>
             </div>
             <div className="text-center">
-              <Button onClick={handleRegistration} disabled size="lg" className="bg-[#F58025] hover:bg-[#e07520] text-white shadow-lg hover:shadow-xl transition-all px-12 py-6 text-lg">
+              <Button onClick={handleRegistration} size="lg" className="bg-[#F58025] hover:bg-[#e07520] text-white shadow-lg hover:shadow-xl transition-all px-12 py-6 text-lg">
                 REGISTER NOW
               </Button>
             </div>
