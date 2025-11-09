@@ -6,6 +6,7 @@ import { useToast } from "@/hooks/use-toast";
 import heroBanner from "@/assets/emea-hero-banner.png";
 import nanotechxlogo from "@/assets/nano_techx_logo.png";
 import { Link, redirect, useNavigate } from "react-router-dom";
+import CollaboratorsSection from "@/components/learnathon/CollaboratorsSection";
 
 const LearnAThon = () => {
 
@@ -445,6 +446,8 @@ const LearnAThon = () => {
           </div>
         </div>
       </section>
+
+      <CollaboratorsSection />
 
       {/* Registration */}
       <section id="registration" className="py-16 bg-white">
