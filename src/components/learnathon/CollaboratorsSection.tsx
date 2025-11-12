@@ -31,13 +31,14 @@ const CollaboratorsSection = () => {
           <p className="text-gray-600 text-lg">Powered by industry-leading partners</p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 p-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {partners.map((partner, index) => (
             <div
               key={index}
-              className="group relative cursor-pointer"
+              className="group relative cursor-pointer h-48 sm:h-56"
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
+              style={{ perspective: '1000px' }}
             >
               {/* Glow effect on hover */}
               <div 
@@ -47,64 +48,62 @@ const CollaboratorsSection = () => {
                 style={{ backgroundColor: partner.color }}
               ></div>
 
-              {/* Card */}
-              <div className="relative h-48 bg-white border-2 border-gray-200 rounded-2xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-transparent">
-                {/* Gradient overlay on hover */}
+              {/* Flip Card Container */}
+              <div 
+                className="relative w-full h-full transition-transform duration-700"
+                style={{
+                  transformStyle: 'preserve-3d',
+                  transform: hoveredIndex === index ? 'rotateY(180deg)' : 'rotateY(0deg)'
+                }}
+              >
+                {/* Front Side - Logo Only */}
                 <div 
-                  className={`absolute inset-0 transition-opacity duration-500 ${
-                    hoveredIndex === index ? 'opacity-10' : 'opacity-0'
-                  }`}
+                  className="absolute inset-0 bg-white border-2 border-gray-200 rounded-2xl shadow-lg overflow-hidden flex items-center justify-center p-6 sm:p-8"
+                  style={{ backfaceVisibility: 'hidden' }}
+                >
+                  <img 
+                    src={partner.logo} 
+                    alt={`${partner.name} logo`}
+                    className="w-full h-full object-contain max-w-[120px] sm:max-w-[150px] max-h-[120px] sm:max-h-[150px]"
+                  />
+                </div>
+
+                {/* Back Side - Title & Description */}
+                <div 
+                  className="absolute inset-0 bg-white border-2 rounded-2xl shadow-lg overflow-hidden flex flex-col items-center justify-center p-4 sm:p-6 space-y-3 sm:space-y-4"
                   style={{ 
-                    background: `linear-gradient(135deg, ${partner.color}, transparent)` 
+                    backfaceVisibility: 'hidden',
+                    transform: 'rotateY(180deg)',
+                    borderColor: partner.color
                   }}
-                ></div>
-
-                {/* Content */}
-                <div className="relative h-full flex flex-col items-center justify-center p-6 space-y-4">
-                  {/* Logo image */}
+                >
                   <div 
-                    className="w-24 h-24 flex items-center justify-center transition-all duration-500"
+                    className="absolute inset-0 opacity-5"
                     style={{ 
-                      transform: hoveredIndex === index ? 'scale(1.1) rotate(5deg)' : 'scale(1) rotate(0deg)'
+                      background: `linear-gradient(135deg, ${partner.color}, transparent)` 
                     }}
-                  >
-                    <img 
-                      src={partner.logo} 
-                      alt={`${partner.name} logo`}
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-
-                  {/* Partner name */}
+                  ></div>
+                  
                   <h3 
-                    className="text-xl font-black transition-colors duration-300"
-                    style={{ 
-                      color: hoveredIndex === index ? partner.color : '#1e293b'
-                    }}
+                    className="text-xl sm:text-2xl font-black relative z-10 text-center"
+                    style={{ color: partner.color }}
                   >
                     {partner.name}
                   </h3>
-
-                  {/* Description - slide up on hover */}
-                  <p 
-                    className={`text-sm text-gray-600 text-center transition-all duration-500 ${
-                      hoveredIndex === index ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                    }`}
-                  >
+                  
+                  <p className="text-sm sm:text-base text-gray-700 text-center relative z-10 font-medium">
                     {partner.description}
                   </p>
-                </div>
 
-                {/* Animated corner accent */}
-                <div 
-                  className={`absolute top-0 right-0 w-16 h-16 transition-all duration-500 ${
-                    hoveredIndex === index ? 'scale-100' : 'scale-0'
-                  }`}
-                  style={{
-                    background: `linear-gradient(135deg, transparent 50%, ${partner.color} 50%)`,
-                    transformOrigin: 'top right'
-                  }}
-                ></div>
+                  {/* Decorative corner accent */}
+                  <div 
+                    className="absolute top-0 right-0 w-12 h-12 sm:w-16 sm:h-16"
+                    style={{
+                      background: `linear-gradient(135deg, transparent 50%, ${partner.color} 50%)`,
+                      opacity: 0.2
+                    }}
+                  ></div>
+                </div>
               </div>
             </div>
           ))}

@@ -2,10 +2,8 @@ import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar, Award, ExternalLink, Signal, BookA, Sparkle, TrophyIcon, Target } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
 import heroBanner from "@/assets/emea-hero-banner.png";
-import nanotechxlogo from "@/assets/nano_techx_logo.png";
-import { Link, redirect, useNavigate } from "react-router-dom";
+import nanotechxlogo from "@/assets/nanotechx-black.png";
 import CollaboratorsSection from "@/components/learnathon/CollaboratorsSection";
 
 const LearnAThon = () => {
