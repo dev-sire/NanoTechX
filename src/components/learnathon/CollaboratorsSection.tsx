@@ -2,6 +2,7 @@ import { useState } from 'react';
 import ciscoCommunityLogo from "@/assets/cisco_community.jpg"
 import MarketSmile from "@/assets/market_smiling.jpg";
 import aieysLogo from "@/assets/aieys.jpg";
+import icdfaLogo from "@/assets/ICDFA.jpg"
 
 const CollaboratorsSection = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -10,6 +11,7 @@ const CollaboratorsSection = () => {
     { name: 'Cisco Community Pakistan', description: 'IT Systems Training & Support', color: '#0D96CC', logo: ciscoCommunityLogo },
     { name: 'Market Smiling', description: 'Cisco Trainings & Certifications', color: '#F58025', logo: MarketSmile },
     { name: 'AI Explains You Science', description: 'Higher Education', color: '#0D96CC', logo: aieysLogo },
+    { name: 'ICDFA', description: 'International Cybersecurity & Digital Forensics Academy', color: '#F58025', logo: icdfaLogo },
   ];
 
   return (
