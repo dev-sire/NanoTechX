@@ -9,7 +9,6 @@ import {
 } from "lucide-react";
 import acmLogo from "@/assets/acm_sigsac.png";
 import acmBahriaLogo from "@/assets/acm_bahria.png";
-import aieysLogo from "@/assets/aieys.jpg";
 import ciscoLogo from "@/assets/cisco_logo.png";
 import ciscoCommunityLogo from "@/assets/cisco_community.jpg";
 import TechHiearchy from "@/assets/Tech_Hiearchy.jpg";
@@ -148,8 +147,8 @@ export const instructors: Instructor[] = [
   {
     id: 1,
     name: "Hafiz Muhammad Attaullah",
-    designation: "Founder | Lecturer | Master Trainer",
-    company: "NanoTechX | MAJU | Cisco",
+    designation: "Senior Cyber security Consultant and Master Trainer",
+    company: "NanoTechX | Cisco",
     image: HafizMuhammadAttaullah,
     linkedin: "https://www.linkedin.com/in/attaullahshafiq10/",
   },
@@ -169,7 +168,6 @@ export const instructors: Instructor[] = [
 export const partnerLogos = [
   { logo: acmLogo, name: "ACM SIGSAC DUET" },
   { logo: acmBahriaLogo, name: "ACM Bahria University" },
-  { logo: aieysLogo, name: "AI Explains You Science" },
   { logo: ciscoLogo, name: "Cisco Networking Academy" },
   { logo: ciscoCommunityLogo, name: "Cisco Community Pakistan" },
   { logo: TechHiearchy, name: "Tech Hiearchy" },
