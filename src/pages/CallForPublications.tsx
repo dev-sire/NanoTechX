@@ -201,16 +201,6 @@ const CallForPublications = () => {
     };
   }, []);
 
-  const onSubmit = () => {
-  const email = "uav.editorial@gmail.com";
-  const subject = "Chapter Abstract Submission";
-  const body = `Dear Editorial Team,%0D%0A%0D%0APlease find my abstract attached for consideration.%0D%0A%0D%0ARegards,%0D%0A[Your Name]`;
-
-  const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`;
-  
-  window.open(gmailUrl, "_blank");
-};
-
   const initialsFor = useMemo(() => (name: string) => {
     const parts = name.split(" ");
     return parts.map((p) => p[0]).join("").slice(0, 2).toUpperCase();
@@ -257,6 +247,12 @@ const CallForPublications = () => {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           <div className="animate-fade-in">
             <div className="text-center mb-6">
+              <div className="mb-4">
+                <span className="inline-flex items-center gap-2 rounded-full border border-green-500/40 bg-green-500/10 px-4 py-1.5 text-sm font-medium text-green-600 dark:text-green-400">
+                  <CheckCircle2 className="h-4 w-4" />
+                  Successfully Concluded • Past Call (Archive)
+                </span>
+              </div>
               <span className="inline-block rounded border border-border bg-muted/50 px-3 py-1 text-[11px] tracking-wide text-muted-foreground">Scopus Indexed Edited Volume</span>
               <h1 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight news-serif ink-shadow">
                 Call for Book Chapters
@@ -280,8 +276,8 @@ const CallForPublications = () => {
                 <Button variant="cyber" onClick={handleDownloadPoster} aria-label="Download poster">
                   <FileDown className="mr-2" /> Download Poster
                 </Button>
-                <Button variant="cyber-outline" onClick={onSubmit} aria-label="Submit chapter">
-                  <Send className="mr-2" /> Submit Chapter
+                <Button variant="cyber-outline" disabled aria-label="Submissions closed">
+                  <Send className="mr-2" /> Submissions Closed
                 </Button>
               </div>
             </div>
@@ -485,15 +481,15 @@ const CallForPublications = () => {
         <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-wrap items-center justify-between gap-4 rounded-xl border border-border bg-cyber-surface p-5 animate-fade-in">
             <div>
-              <h2 className="text-lg font-semibold">Ready to contribute?</h2>
-              <p className="text-sm text-muted-foreground">Submit your Scopus-ready chapter to be part of this edited volume.</p>
+              <h2 className="text-lg font-semibold">This call has concluded</h2>
+              <p className="text-sm text-muted-foreground">Thank you to everyone who contributed to this edited volume. Submissions are now closed.</p>
             </div>
             <div className="flex flex-col md:flex-row gap-3">
               <Button variant="cyber-outline" onClick={handleDownloadPoster} aria-label="Download poster bottom">
                 <FileDown className="mr-2" /> Download Poster
               </Button>
-              <Button variant="cyber" onClick={onSubmit} aria-label="Submit chapter bottom">
-                <Send className="mr-2" /> Submit Chapter
+              <Button variant="cyber" disabled aria-label="Submissions closed bottom">
+                <Send className="mr-2" /> Submissions Closed
               </Button>
             </div>
             <p className="text-xs text-muted-foreground">

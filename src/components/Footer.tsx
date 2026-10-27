@@ -55,8 +55,8 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <Link to="/tech-tayari" className="text-muted-foreground hover:text-primary transition-colors">
-                  Tech Tayari
+                <Link to="/tech-tayari-2" className="text-muted-foreground hover:text-primary transition-colors">
+                  Tech Tayari 2.0
                 </Link>
               </li>
               <li>

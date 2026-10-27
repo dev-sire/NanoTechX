@@ -4,6 +4,8 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Menu, X, Shield, ChevronDown } from "lucide-react";
@@ -24,6 +26,11 @@ const Navbar = () => {
   ];
 
   const initiativeItems = [
+    { name: "Tech Tayari 2.0", path: "/tech-tayari-2" },
+  ];
+
+  // Concluded initiatives
+  const archiveItems = [
     { name: "Tech Tayari 1.0", path: "/tech-tayari" },
     { name: "Call for Publications", path: "/call-for-publications" },
     { name: "Learn-a-thon", path: "/learn-a-thon" },
@@ -112,8 +119,19 @@ const Navbar = () => {
                 Initiatives
                 <ChevronDown className="ml-1 h-3 w-3" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-48">
+              <DropdownMenuContent align="end" className="w-52">
                 {initiativeItems.map((item) => (
+                  <DropdownMenuItem key={item.name} asChild>
+                    <Link to={item.path} className="w-full">
+                      {item.name}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+                <DropdownMenuSeparator />
+                <DropdownMenuLabel className="text-xs text-muted-foreground font-normal">
+                  Archive
+                </DropdownMenuLabel>
+                {archiveItems.map((item) => (
                   <DropdownMenuItem key={item.name} asChild>
                     <Link to={item.path} className="w-full">
                       {item.name}
@@ -165,6 +183,17 @@ const Navbar = () => {
               <div className="border-t border-border pt-3 mt-3">
                 <span className="text-sm font-medium text-muted-foreground block mb-2">Initiatives</span>
                 {initiativeItems.map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.path}
+                    className="text-sm font-medium transition-colors duration-300 hover:text-primary text-muted-foreground block pl-4"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+                <span className="text-xs text-muted-foreground block mt-3 mb-1 pl-4">Archive</span>
+                {archiveItems.map((item) => (
                   <Link
                     key={item.name}
                     to={item.path}

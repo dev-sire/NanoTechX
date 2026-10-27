@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { ExternalLink, Users, Clock, Award, BookOpen, Code, Shield, Network, Brain, Database, Server, Zap, Rocket, Globe, Cpu, Monitor, Wifi, Star, Target, Linkedin, ArrowRight } from "lucide-react";
+import { Users, Clock, Award, BookOpen, Code, Shield, Network, Brain, Database, Server, Zap, Rocket, Globe, Cpu, Monitor, Wifi, Star, Target, Linkedin, ArrowRight, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import ciscoTechImage from "@/assets/cisco-tech.jpg";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -111,10 +111,6 @@ const TechTayari = () => {
     }
   ];
 
-  const handleRegister = () => {
-    window.open("https://docs.google.com/forms/d/e/1FAIpQLSdk7Sqwa_v4LGyYtWyRds7UAchfGL1BFNTBMTCKh1yxk0QGoQ/viewform?usp=header", "_blank");
-  };
-
   const handleDownloadPoster = () => {
     const link = document.createElement('a');
     link.href = '/Poster.pdf';
@@ -140,6 +136,13 @@ const TechTayari = () => {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="hero-content text-center">
+            {/* Concluded marker */}
+            <div className="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/30 rounded-full px-5 py-2 mb-4">
+              <CheckCircle2 className="h-4 w-4 text-green-400" />
+              <span className="text-sm font-medium text-green-400">Successfully Concluded • Past Event (Archive)</span>
+            </div>
+            <br />
+
             {/* Partnership Badge */}
             <div className="animate-float fade-in-5 inline-flex items-center gap-2 bg-cyber-surface border border-primary/20 rounded-full px-6 py-3 mb-8">
               <Award className="h-5 w-5 text-primary animate-glow" />
@@ -166,7 +169,7 @@ const TechTayari = () => {
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-primary mb-2">25+</div>
-                <div className="text-sm text-muted-foreground">Courses Available</div>
+                <div className="text-sm text-muted-foreground">Courses Offered</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-primary mb-2">100%</div>
@@ -179,18 +182,19 @@ const TechTayari = () => {
             </div>
 
             {/* CTA Button */}
-            <Button 
-              variant="cyber" 
-              size={isMobile ? "sm" : "lg"}
-              onClick={handleRegister}
-              className="animate-reveal-blur [animation-delay:1200ms] opacity-0 group text-lg px-4 md:px-8 py-4 h-auto"
-            >
-              Register Now - Start Your Journey
-              <ExternalLink className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            <Link to="/tech-tayari-2">
+              <Button 
+                variant="cyber" 
+                size={isMobile ? "sm" : "lg"}
+                className="animate-reveal-blur [animation-delay:1200ms] opacity-0 group text-lg px-4 md:px-8 py-4 h-auto"
+              >
+                Explore Tech Tayari 2.0
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
 
             <p className="animate-reveal-blur [animation-delay:1500ms] opacity-0 text-sm text-muted-foreground mt-4">
-              Limited seats available • Earn a Free Digital Badge • Industry certification
+              This edition has concluded. Thank you to everyone who joined us!
             </p>
           </div>
         </div>
@@ -395,7 +399,7 @@ const TechTayari = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="fade-in-up text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Why Choose <span className="bg-gradient-primary bg-clip-text text-transparent">Tech Tayari 1.0?</span>
+              Highlights of <span className="bg-gradient-primary bg-clip-text text-transparent">Tech Tayari 1.0</span>
             </h2>
           </div>
 
@@ -470,22 +474,19 @@ const TechTayari = () => {
       <section className="py-20 bg-gradient-dark">
         <div className="fade-in-up max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Transform Your Career?
+            Thank You for Making Tech Tayari 1.0 a Success
           </h2>
           <p className="text-lg text-muted-foreground mb-8">
-            Join hundreds of professionals who have advanced their careers through Tech Tayari 1.0. 
-            Start your journey in cutting-edge technology today.
+            Tech Tayari 1.0 has concluded. Stay tuned for the next edition,
+            where we continue to build skills in cutting-edge technology.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              variant="cyber" 
-              size="lg" 
-              onClick={handleRegister}
-              className="group"
-            >
-              Register Now
-              <ExternalLink className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            <Link to="/tech-tayari-2">
+              <Button variant="cyber" size="lg" className="group">
+                Explore Tech Tayari 2.0
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
             <Button variant="cyber-outline" size="lg" onClick={handleDownloadPoster}>
               Download Poster
             </Button>

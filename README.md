@@ -84,7 +84,7 @@ And various other supporting libraries for specific functionalities.
 │  │  ├─ iftikhar-javed.jpg
 │  │  ├─ inam-sir.jpg
 │  │  ├─ market_smiling.jpg
-│  │  ├─ my-profile.jpg
+│  │  ├─ Profile.png
 │  │  ├─ nano_techx_logo.png
 │  │  ├─ sir-attaullah.jpg
 │  │  └─ waqas-karim.jpg
