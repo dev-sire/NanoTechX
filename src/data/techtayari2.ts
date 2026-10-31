@@ -28,8 +28,8 @@ import AmanShahid from "@/assets/Profile.png";
  * and paste the form link into `url`.
  */
 export const REGISTRATION = {
-  isOpen: false,
-  url: "",
+  isOpen: true,
+  url: "https://docs.google.com/forms/d/e/1FAIpQLSdOj9cr4uRjOh6tkmYzZhzZI9tWv69SNoHOblpqTQ727X1c_g/viewform?usp=dialog",
 };
 
 /* ---------- 2. COURSES & TRACKS ----------
