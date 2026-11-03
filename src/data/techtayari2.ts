@@ -7,8 +7,9 @@ import {
   Server,
   type LucideIcon,
 } from "lucide-react";
-import acmLogo from "@/assets/acm_sigsac.png";
-import acmBahriaLogo from "@/assets/acm_bahria.png";
+import spyra from "@/assets/spyra-logo.png"
+import warsoc from "@/assets/warsoc-logo.png"
+import youthfoundation from "@/assets/youth-evolution.png"
 import ciscoLogo from "@/assets/cisco_logo.png";
 import ciscoCommunityLogo from "@/assets/cisco_community.jpg";
 import TechHiearchy from "@/assets/Tech_Hiearchy.jpg";
@@ -166,10 +167,11 @@ export const instructors: Instructor[] = [
  * Same as 1.0 for now. Add / remove entries as alliances change.
  */
 export const partnerLogos = [
-  { logo: acmLogo, name: "ACM SIGSAC DUET" },
-  { logo: acmBahriaLogo, name: "ACM Bahria University" },
+  { logo: spyra, name: "SpyraSOC" },
+  { logo: warsoc, name: "WarSOC" },
+  { logo: youthfoundation, name: "Youth Evolution Foundation" },
+  { logo: TechHiearchy, name: "Tech Hiearchy" },
   { logo: ciscoLogo, name: "Cisco Networking Academy" },
   { logo: ciscoCommunityLogo, name: "Cisco Community Pakistan" },
-  { logo: TechHiearchy, name: "Tech Hiearchy" },
   { logo: MarketSmile, name: "Market Smiling" },
 ];
