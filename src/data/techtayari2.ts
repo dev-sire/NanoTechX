@@ -12,7 +12,7 @@ import warsoc from "@/assets/warsoc-logo.png"
 import youthfoundation from "@/assets/youth-evolution.png"
 import ciscoLogo from "@/assets/cisco_logo.png";
 import ciscoCommunityLogo from "@/assets/cisco_community.jpg";
-import TechHiearchy from "@/assets/Tech_Hiearchy.jpg";
+import TechHiearchy from "@/assets/tech-hierarchy.png";
 import MarketSmile from "@/assets/market_smiling.jpg";
 import HafizMuhammadAttaullah from "@/assets/sir-attaullah.jpg";
 import AmanShahid from "@/assets/Profile.png";

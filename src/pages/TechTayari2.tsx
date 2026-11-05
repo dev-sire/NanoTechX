@@ -53,13 +53,13 @@ const TechTayari2 = () => {
                 <Award className="h-5 w-5 text-primary animate-glow" />
                 <span className="text-sm font-medium text-primary">NanoTechx × Cisco Partnership</span>
               </div>
-              <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-5 py-3">
+              {/* <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-5 py-3">
                 <span className="relative flex h-2.5 w-2.5">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary" />
                 </span>
                 <span className="text-sm font-medium text-primary">Registrations Opening Soon</span>
-              </div>
+              </div> */}
             </div>
 
             <h1 className="animate-reveal-blur [animation-delay:300ms] opacity-0 text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
@@ -84,8 +84,8 @@ const TechTayari2 = () => {
                 <div className="text-sm text-muted-foreground">Expert Instructors</div>
               </div>
               <div className="text-center col-span-2 md:col-span-1">
-                <div className="text-3xl font-bold text-primary mb-2">Soon</div>
-                <div className="text-sm text-muted-foreground">Registrations Open</div>
+                <div className="text-3xl font-bold text-primary mb-2">15th November, 2026</div>
+                <div className="text-sm text-muted-foreground">Last Date to apply</div>
               </div>
             </div>
 
@@ -100,7 +100,7 @@ const TechTayari2 = () => {
             </Button>
 
             <p className="animate-reveal-blur [animation-delay:1500ms] opacity-0 text-sm text-muted-foreground mt-4">
-              Registrations opening soon • Stay tuned for announcements
+              Registrations Opened! Hurry up and secure your spot
             </p>
           </div>
         </div>

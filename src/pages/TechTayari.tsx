@@ -16,7 +16,7 @@ import ciscoCommunityLogo from "@/assets/cisco_community.jpg"
 import GulIqbal from "@/assets/gul-iqbal.jpg";
 import WaqasKarim from "@/assets/waqas-karim.jpg";
 import IftikharJaved from "@/assets/iftikhar-javed.jpg";
-import TechHiearchy from "@/assets/Tech_Hiearchy.jpg"
+import TechHiearchy from "@/assets/tech-hierarchy.png"
 import MarketSmile from "@/assets/market_smiling.jpg";
 
 const TechTayari = () => {
